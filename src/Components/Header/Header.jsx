@@ -3,7 +3,7 @@ import { Menu, X, Code2, Layers, Briefcase, Mail } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { IdCardLanyard } from "lucide-react";
 import { HashLink } from "react-router-hash-link";
-import { RTB } from "../../assets";
+import { Avatar } from "../../assets";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -85,21 +85,24 @@ const Header = () => {
         <div className="max-w-6xl mx-auto gap-3 px-3 flex justify-between items-center">
           <Link
             to="/"
-            className="text-2xl font-bold tracking-tighter flex items-center gap-2 group"
+            className="text-2xl font-bold tracking-tighter flex items-center gap-2.5 group"
           >
-            <div className="w-10 h-10 border-2 border-white/70 rounded-xl flex items-center justify-center group-hover:shadow-[0_0_15px_rgba(6,182,212,0.8)] transition-shadow overflow-hidden">
-              <span className="text-black text-xs font-bold">
-                <img
-                  src={RTB}
-                  alt="logotive"
-                  loading="lazy"
-                  className="w-full h-full object-cover"
-                />
+            <div className="w-9 h-9 rounded-full ring-2 ring-white/20 group-hover:ring-cyan-400/60 transition-all duration-300 overflow-hidden shrink-0">
+              <img
+                src={Avatar}
+                alt="Raximjon Tulaganov"
+                loading="lazy"
+                className="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div className="flex flex-col leading-none">
+              <span className="text-[13px] font-bold text-white group-hover:text-cyan-400 transition-colors tracking-tight">
+                Raximjon Tulaganov
+              </span>
+              <span className="text-[10px] text-gray-600 font-medium tracking-widest uppercase">
+                Frontend Engineer
               </span>
             </div>
-            <span className="text-white group-hover:text-cyan-400 transition-colors">
-              Raximjon
-            </span>
           </Link>
           <nav>
             {/* Desktop Menu */}
