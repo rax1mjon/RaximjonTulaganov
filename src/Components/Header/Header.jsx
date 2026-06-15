@@ -41,7 +41,6 @@ const Header = () => {
       name: "Loyihalar",
       path: "/",
       hash: "#projects",
-      disabled: true,
       icon: <Briefcase size={18} />,
     },
     {

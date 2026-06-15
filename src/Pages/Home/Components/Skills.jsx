@@ -1,75 +1,30 @@
 import React from "react";
-import { Code2, Terminal, Cpu, Layout, Workflow, Zap } from "lucide-react";
+import { Code2, Terminal, Cpu, Layout, Workflow, Zap, Server, Search } from "lucide-react";
+import { portfolioData } from "../../../data/portfolioData";
+
+const CATEGORY_ICONS = {
+  "Core Frontend & Logic": <Code2 className="text-[#00f3ff]" size={22} />,
+  "React Ecosystem": <Cpu className="text-[#00f3ff]" size={22} />,
+  "State & Data Flow": <Workflow className="text-[#00f3ff]" size={22} />,
+  "Styling & UI Architecture": <Layout className="text-[#00f3ff]" size={22} />,
+  "Engineering & Build Tools": <Zap className="text-[#00f3ff]" size={22} />,
+  "Version Control & Teamwork": <Terminal className="text-[#00f3ff]" size={22} />,
+  "Infrastructure & Deployment": <Server className="text-[#00f3ff]" size={22} />,
+  "SEO & web standards": <Search className="text-[#00f3ff]" size={22} />,
+};
 
 const Skills = () => {
-  const skillGroups = [
-    {
-      category: "Core Frontend & Logic",
-      icon: <Code2 className="text-[#00f3ff]" size={22} />,
-      items: [
-        "JavaScript (ES6+)",
-        "HTML5 & Semantic UI",
-        "CSS3 (Flexbox & Grid)",
-        "Async/Await & Promises",
-        "Destructuring & Logic",
-      ],
-    },
-    {
-      category: "React Ecosystem",
-      icon: <Cpu className="text-[#00f3ff]" size={22} />,
-      items: [
-        "React.js Specialist",
-        "Hooks (Memo, Callback, Effect)",
-        "React Hook Form",
-        "Framer Motion (Animations)",
-        "Reusable Components",
-      ],
-    },
-    {
-      category: "State & Data Flow",
-      icon: <Workflow className="text-[#00f3ff]" size={22} />,
-      items: [
-        "Redux Toolkit",
-        "Context API",
-        "React Query (TanStack)",
-        "Axios",
-        "REST API Integration",
-      ],
-    },
-    {
-      category: "Styling & UI Architecture",
-      icon: <Layout className="text-[#00f3ff]" size={22} />,
-      items: [
-        "SCSS Preprocessor",
-        "TailwindCSS",
-        "Ant Design (AntD)",
-        "Bootstrap",
-        "Responsive & Pixel Perfect",
-      ],
-    },
-    {
-      category: "Engineering & Build Tools",
-      icon: <Zap className="text-[#00f3ff]" size={22} />,
-      items: [
-        "TurboRepo",
-        "Vite",
-        "PNPM / NPM / Yarn",
-        "Performance (Lighthouse)",
-        "Lazy Loading & Optimization",
-      ],
-    },
-    {
-      category: "Version Control & Teamwork",
-      icon: <Terminal className="text-[#00f3ff]" size={22} />,
-      items: [
-        "Advanced Git & GitHub",
-        "Branching Strategies",
-        "Collaboration Workflow",
-        "Code Versioning",
-        "Team Synchronization",
-      ],
-    },
-  ];
+  const grouped = portfolioData.skills.reduce((acc, skill) => {
+    if (!acc[skill.category]) acc[skill.category] = [];
+    acc[skill.category].push(skill);
+    return acc;
+  }, {});
+
+  const skillGroups = Object.entries(grouped).map(([category, skills]) => ({
+    category,
+    icon: CATEGORY_ICONS[category] ?? <Code2 className="text-[#00f3ff]" size={22} />,
+    items: skills.map((s) => s.name),
+  }));
 
   return (
     <section
@@ -94,7 +49,6 @@ const Skills = () => {
                   Ecosystem
                 </span>
               </h2>
-
               <div className="w-20 h-1 bg-[#00f3ff] shadow-[0_0_15px_#00f3ff] transition-all duration-500 group-hover:w-40" />
             </div>
             <p className="text-gray-300 max-w-xl text-[15px] leading-relaxed">
@@ -104,14 +58,17 @@ const Skills = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-[#5c5c5c]/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-[#5c5c5c]/10">
           {skillGroups.map((group, idx) => (
             <div
               key={idx}
-              className={`group relative p-4 sm:p-10 transition-all duration-700 sm:max-h-57.5
-                ${idx % 3 !== 2 ? "lg:border-r" : ""} 
-                ${idx < 3 ? "lg:border-b" : ""} 
-                border-[#5c5c5c]/50 hover:bg-[#5c5c5c]/2`}
+              className={`group relative p-6 sm:p-8 transition-all duration-700
+                ${idx % 4 !== 3 ? "lg:border-r" : ""}
+                ${idx % 2 !== 1 ? "md:border-r lg:border-r-0" : ""}
+                ${idx < 4 ? "lg:border-b" : ""}
+                ${idx < 6 ? "md:border-b lg:border-b-0" : ""}
+                ${idx < 4 ? "lg:border-b" : ""}
+                border-[#5c5c5c]/20 hover:bg-[#5c5c5c]/2`}
             >
               <div className="absolute top-0 left-0 w-0 h-px bg-[#5c5c5c]/40 group-hover:w-full transition-all duration-700" />
 
@@ -119,24 +76,24 @@ const Skills = () => {
                 <div className="flex items-center justify-between mb-4">
                   <div className="text-[#5c5c5c] group-hover:text-white transition-colors duration-500 transform group-hover:scale-110">
                     {React.cloneElement(group.icon, {
-                      size: 24,
+                      size: 22,
                       strokeWidth: 1,
                     })}
                   </div>
                   <span className="text-[10px] font-mono text-[#5c5c5c]/40 group-hover:text-[#5c5c5c] transition-colors">
-                    0{idx + 1}
+                    {String(idx + 1).padStart(2, "0")}
                   </span>
                 </div>
 
-                <h4 className="text-xl font-semibold text-white/90 mb-3 tracking-tight uppercase group-hover:tracking-widest transition-all duration-500">
+                <h4 className="text-[13px] font-semibold text-white/90 mb-4 tracking-tight uppercase group-hover:tracking-widest transition-all duration-500 leading-snug">
                   {group.category}
                 </h4>
 
-                <div className="flex flex-wrap gap-x-4 gap-y-3 mt-auto">
+                <div className="flex flex-wrap gap-x-3 gap-y-2.5 mt-auto">
                   {group.items.map((skill, i) => (
                     <span
                       key={i}
-                      className="text-[12px] text-[#5c5c5c] group-hover:text-white/60 transition-all duration-300 font-medium tracking-tight cursor-default relative hover:after:w-full after:w-0 after:h-px after:bg-[#5c5c5c] after:absolute after:-bottom-1 after:left-0 after:transition-all"
+                      className="text-[11px] text-[#5c5c5c] group-hover:text-white/60 transition-all duration-300 font-medium tracking-tight cursor-default relative hover:after:w-full after:w-0 after:h-px after:bg-[#5c5c5c] after:absolute after:-bottom-1 after:left-0 after:transition-all"
                     >
                       {skill}
                     </span>
@@ -144,8 +101,8 @@ const Skills = () => {
                 </div>
               </div>
 
-              <div className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0 text-[9px] text-[#5c5c5c] font-mono uppercase tracking-[0.2em]">
-                Explore Experience
+              <div className="absolute bottom-5 right-5 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0 text-[9px] text-[#5c5c5c] font-mono uppercase tracking-[0.2em]">
+                {group.items.length} skills
               </div>
             </div>
           ))}

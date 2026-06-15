@@ -1,36 +1,35 @@
 import React from "react";
 import {
-  Code2,
-  Cpu,
-  Layout,
-  BrainCircuit,
+  Layers,
+  ShieldCheck,
+  Zap,
+  Server,
   Dumbbell,
   Music,
   CheckCircle2,
-  ArrowRight,
 } from "lucide-react";
 
 const About = () => {
   const principles = [
     {
-      title: "Engineering Excellence",
-      desc: "Clean Code va kengayuvchan arxitektura (scalability) mening kod yozish falsafamning asosi.",
-      icon: <Code2 className="text-[#00f3ff]" size={24} />,
+      title: "Monorepo Architecture",
+      desc: "TurboRepo + pnpm workspace: shared UI, hooks, services paketlari. Bir joyda o'zgartirish — barcha applarga avtomatik ta'sir.",
+      icon: <Layers className="text-[#00f3ff]" size={24} />,
     },
     {
-      title: "Data-Driven Logic",
-      desc: "Murakkab API integratsiyalari va state management orqali dinamik ma'lumotlar oqimini boshqarish.",
-      icon: <Cpu className="text-[#00f3ff]" size={24} />,
+      title: "Role-Based Systems",
+      desc: "4 xil rol (superadmin, omborchi, operator, kuryer) — alohida routing, menyu, ruxsatlar. JWT + Axios interceptor bilan token auto-refresh.",
+      icon: <ShieldCheck className="text-[#00f3ff]" size={24} />,
     },
     {
-      title: "Technical Precision",
-      desc: "Pixel-perfect dizayn va yuqori samaradorlik (performance) — har bir loyihada ustuvor vazifa.",
-      icon: <Layout className="text-[#00f3ff]" size={24} />,
+      title: "Performance Engineering",
+      desc: "TBT 13,370ms → ~0ms. 29 PNG → WebP (95% hajm). YouTube lazy facade. Lighthouse 90+ — har bir loyihada o'lchab, optimizatsiya qilingan.",
+      icon: <Zap className="text-[#00f3ff]" size={24} />,
     },
     {
-      title: "AI Integration",
-      desc: "Deep debugging va rivojlanish jarayonlarini AI vositalari yordamida tezlashtirish.",
-      icon: <BrainCircuit className="text-[#00f3ff]" size={24} />,
+      title: "Production Deployment",
+      desc: "Docker Compose, Nginx reverse proxy, subdomain routing (username.procraft.uz). Cloudflare CDN va bot management sozlamalari.",
+      icon: <Server className="text-[#00f3ff]" size={24} />,
     },
   ];
 
@@ -44,9 +43,9 @@ const About = () => {
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="mb-16 group cursor-default">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tighter">
-            Software Engineer
+            Frontend Engineer —{" "}
             <span className="text-[#00f3ff] transition-all duration-500 group-hover:drop-shadow-[0_0_15px_rgba(0,243,255,0.6)]">
-              React Specialist
+              Monorepo & SaaS
             </span>
           </h2>
           <div className="w-20 h-1 bg-[#00f3ff] shadow-[0_0_15px_#00f3ff] transition-all duration-500 group-hover:w-40" />
@@ -56,11 +55,14 @@ const About = () => {
           <div className="lg:col-span-7 space-y-6">
             <p className="text-xl text-gray-400 leading-relaxed font-light">
               <span className="hover:text-white transition-colors duration-300">
-                Men — murakkab veb-ekotizimlar va yuqori yuklanishli
-                interfeyslarni ishlab chiqishga ixtisoslashgan Software
-                Engineerman. Faoliyatim davomida ikkita startap loyihada,
-                jumladan, keng ko'lamli CRM tizimi arxitekturasini qurishda
-                ishtirok etganman.
+                Men — TurboRepo monorepo arxitekturasi asosida ko'p ilovali
+                enterprise tizimlar quruvchi Frontend Engineerman.{" "}
+                <span className="text-white/70">Procraft</span> (4 app, 7
+                shared package, UZ/EN/RU i18n) va{" "}
+                <span className="text-white/70">Urtak</span> (3 app, 5 shared
+                package, 4 rol ERP) — ikkala SaaS platformasini noldan
+                arxitektura qilib, ishlab chiqdim. Docker + Nginx deployment va
+                Cloudflare CDN integratsiyalari ham mening stegim.
               </span>
             </p>
 
@@ -103,7 +105,7 @@ const About = () => {
                 {[
                   {
                     icon: <CheckCircle2 size={18} />,
-                    text: "Analitik fikrlash va muammolarga yechim.",
+                    text: "Muammoni tizimli o'ylab, eng sodda yechim topish.",
                   },
                   {
                     icon: <Dumbbell size={18} />,
@@ -136,9 +138,9 @@ const About = () => {
 
               <div className="mt-8 pt-8 border-t border-white/5 flex items-center justify-between">
                 {[
-                  { val: "1.5+", lab: "Tajriba" },
-                  { val: "2", lab: "Startap" },
-                  { val: "CRM", lab: "Focus" },
+                  { val: "10+", lab: "Loyihalar" },
+                  { val: "2", lab: "SaaS/ERP" },
+                  { val: "2", lab: "Monorepo" },
                 ].map((stat, i) => (
                   <div key={i} className="text-center group/stat">
                     <p className="text-2xl font-bold text-white group-hover/stat:text-[#00f3ff] transition-colors tracking-tighter">
