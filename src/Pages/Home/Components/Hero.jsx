@@ -19,22 +19,22 @@ const Hero = () => {
         </div>
 
         <h1 className="reveal-premium text-5xl md:text-8xl font-bold text-white tracking-tighter leading-[0.9] mb-8">
-          React Solutions <br />
+          Monorepo SaaS <br />
           <span className="text-transparent bg-clip-text bg-linear-to-b from-white bg-cyan-40">
-            Architect.
+            Engineer.
           </span>
         </h1>
 
         <p className="reveal-premium text-gray-500 text-lg md:text-xl max-w-2xl mx-auto mb-12 font-medium leading-relaxed">
-          Interfeyslar orqali biznes mantiqini soddalashtiraman. Faqat kod emas,
-          balki yuqori darajadagi foydalanuvchi tajribasini (UX) quraman.
+          TurboRepo monorepo asosida ko'p ilovali enterprise tizimlar quraman —
+          2 ta to'liq SaaS platforma, ERP dashboard, shared paketlar ekotizimi.
         </p>
 
         <div className="reveal-premium flex flex-col sm:flex-row items-center justify-center gap-6 mb-20">
           <HashLink
             smooth
             to={"#projects"}
-            className="------ pointer-events-none text-gray-500 ------  group relative px-8 py-4 bg-white text-blackk font-bold rounded-sm overflow-hidden transition-all duration-300 hover:bg-[#00b8db] hover:text-white hover:pr-12 active:scale-[0.97] active:brightness-90 shadow-lg hover:shadow-[#00b8db]/40 hover:shadow-2xl"
+            className="group relative px-8 py-4 bg-white text-black font-bold rounded-sm overflow-hidden transition-all duration-300 hover:bg-[#00b8db] hover:text-white hover:pr-12 active:scale-[0.97] active:brightness-90 shadow-lg hover:shadow-[#00b8db]/40 hover:shadow-2xl"
           >
             <span className="relative z-10 tracking-wider transition-colors duration-300">
               LOYIHALARNI KO'RISH
