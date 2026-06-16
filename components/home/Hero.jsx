@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Image from 'next/image';
 import { Github, Linkedin, Send, Mail, Instagram, ChevronRight } from 'lucide-react';
 
 const socialLinks = [
@@ -67,11 +67,14 @@ const Hero = () => {
 
           {/* Photo */}
           <div className="shrink-0 mt-12 md:mt-0">
-            <div className="w-full max-w-xs md:w-72 md:h-[420px] h-64 rounded-2xl overflow-hidden border border-white/8 mx-auto md:mx-0">
-              <img
+            <div className="relative w-full max-w-xs md:w-72 md:h-[420px] h-64 rounded-2xl overflow-hidden border border-white/8 mx-auto md:mx-0">
+              <Image
                 src="/avatar.jpg"
-                alt="Raximjon Tulaganov"
-                className="w-full h-full object-cover object-[30%_top]"
+                alt="Raximjon Tulaganov — Frontend Engineer"
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 288px"
+                className="object-cover object-[30%_top]"
               />
             </div>
           </div>
