@@ -1,16 +1,16 @@
-import React from "react";
-import { Code2, Terminal, Cpu, Layout, Workflow, Zap, Server, Search } from "lucide-react";
-import { portfolioData } from "../../../data/portfolioData";
+import { Code2, Terminal, Cpu, Layout, Workflow, Zap, Server, Search } from 'lucide-react';
+import { cloneElement } from 'react';
+import { portfolioData } from '@/data/portfolioData';
 
 const CATEGORY_ICONS = {
-  "Core Frontend & Logic": <Code2 className="text-[#00f3ff]" size={22} />,
-  "React Ecosystem": <Cpu className="text-[#00f3ff]" size={22} />,
-  "State & Data Flow": <Workflow className="text-[#00f3ff]" size={22} />,
-  "Styling & UI Architecture": <Layout className="text-[#00f3ff]" size={22} />,
-  "Engineering & Build Tools": <Zap className="text-[#00f3ff]" size={22} />,
-  "Version Control & Teamwork": <Terminal className="text-[#00f3ff]" size={22} />,
-  "Infrastructure & Deployment": <Server className="text-[#00f3ff]" size={22} />,
-  "SEO & web standards": <Search className="text-[#00f3ff]" size={22} />,
+  'Core Frontend & Logic':       <Code2    size={22} strokeWidth={1} />,
+  'React Ecosystem':             <Cpu      size={22} strokeWidth={1} />,
+  'State & Data Flow':           <Workflow size={22} strokeWidth={1} />,
+  'Styling & UI Architecture':   <Layout   size={22} strokeWidth={1} />,
+  'Engineering & Build Tools':   <Zap      size={22} strokeWidth={1} />,
+  'Version Control & Teamwork':  <Terminal size={22} strokeWidth={1} />,
+  'Infrastructure & Deployment': <Server   size={22} strokeWidth={1} />,
+  'SEO & web standards':         <Search   size={22} strokeWidth={1} />,
 };
 
 const Skills = () => {
@@ -22,16 +22,13 @@ const Skills = () => {
 
   const skillGroups = Object.entries(grouped).map(([category, skills]) => ({
     category,
-    icon: CATEGORY_ICONS[category] ?? <Code2 className="text-[#00f3ff]" size={22} />,
+    icon: CATEGORY_ICONS[category] ?? <Code2 size={22} strokeWidth={1} />,
     items: skills.map((s) => s.name),
   }));
 
   return (
-    <section
-      className="py-32 bg-[#0c0c0cb3] px-6 relative overflow-hidden"
-      id="skills"
-    >
-      <div className="absolute top-0 left-0 w-full h-px bg-liner-to-r from-transparent via-[#5c5c5c]/30 to-transparent" />
+    <section id="skills" className="py-32 bg-[#030303] px-6 relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#5c5c5c]/30 to-transparent" />
 
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-2 gap-8">
@@ -44,7 +41,7 @@ const Skills = () => {
             </div>
             <div className="mb-6 group cursor-default">
               <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tighter">
-                Technical{" "}
+                Technical{' '}
                 <span className="text-[#00f3ff] transition-all duration-500 group-hover:drop-shadow-[0_0_15px_rgba(0,243,255,0.6)]">
                   Ecosystem
                 </span>
@@ -52,8 +49,8 @@ const Skills = () => {
               <div className="w-20 h-1 bg-[#00f3ff] shadow-[0_0_15px_#00f3ff] transition-all duration-500 group-hover:w-40" />
             </div>
             <p className="text-gray-300 max-w-xl text-[15px] leading-relaxed">
-              Murakkab muammolarni yechishda foydalaniladigan zamonaviy
-              texnologiyalar va muhandislik vositalari.
+              Murakkab muammolarni yechishda foydalaniladigan zamonaviy texnologiyalar va
+              muhandislik vositalari.
             </p>
           </div>
         </div>
@@ -63,25 +60,21 @@ const Skills = () => {
             <div
               key={idx}
               className={`group relative p-6 sm:p-8 transition-all duration-700
-                ${idx % 4 !== 3 ? "lg:border-r" : ""}
-                ${idx % 2 !== 1 ? "md:border-r lg:border-r-0" : ""}
-                ${idx < 4 ? "lg:border-b" : ""}
-                ${idx < 6 ? "md:border-b lg:border-b-0" : ""}
-                ${idx < 4 ? "lg:border-b" : ""}
+                ${idx % 4 !== 3 ? 'lg:border-r' : ''}
+                ${idx % 2 !== 1 ? 'md:border-r lg:border-r-0' : ''}
+                ${idx < 4 ? 'lg:border-b' : ''}
+                ${idx < 6 ? 'md:border-b lg:border-b-0' : ''}
                 border-[#5c5c5c]/20 hover:bg-[#5c5c5c]/2`}
             >
               <div className="absolute top-0 left-0 w-0 h-px bg-[#5c5c5c]/40 group-hover:w-full transition-all duration-700" />
 
               <div className="relative z-10 h-full flex flex-col">
                 <div className="flex items-center justify-between mb-4">
-                  <div className="text-[#5c5c5c] group-hover:text-white transition-colors duration-500 transform group-hover:scale-110">
-                    {React.cloneElement(group.icon, {
-                      size: 22,
-                      strokeWidth: 1,
-                    })}
+                  <div className="text-gray-500 group-hover:text-[#00f3ff] transition-colors duration-500 transform group-hover:scale-110">
+                    {group.icon}
                   </div>
-                  <span className="text-[10px] font-mono text-[#5c5c5c]/40 group-hover:text-[#5c5c5c] transition-colors">
-                    {String(idx + 1).padStart(2, "0")}
+                  <span className="text-[10px] font-mono text-gray-600 group-hover:text-gray-400 transition-colors">
+                    {String(idx + 1).padStart(2, '0')}
                   </span>
                 </div>
 
@@ -93,7 +86,7 @@ const Skills = () => {
                   {group.items.map((skill, i) => (
                     <span
                       key={i}
-                      className="text-[11px] text-[#5c5c5c] group-hover:text-white/60 transition-all duration-300 font-medium tracking-tight cursor-default relative hover:after:w-full after:w-0 after:h-px after:bg-[#5c5c5c] after:absolute after:-bottom-1 after:left-0 after:transition-all"
+                      className="text-[11px] text-gray-400 group-hover:text-white/80 transition-all duration-300 font-medium tracking-tight cursor-default relative hover:after:w-full after:w-0 after:h-px after:bg-gray-400 after:absolute after:-bottom-1 after:left-0 after:transition-all"
                     >
                       {skill}
                     </span>
