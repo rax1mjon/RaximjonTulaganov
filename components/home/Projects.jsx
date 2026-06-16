@@ -1,6 +1,6 @@
-import { ArrowUpRight, Lock, Github } from "lucide-react";
-import { Link } from "react-router-dom";
-import { portfolioData } from "../../../data/portfolioData";
+import Link from 'next/link';
+import { ArrowUpRight, Lock, Github } from 'lucide-react';
+import { portfolioData } from '@/data/portfolioData';
 
 const Projects = () => {
   const { projects } = portfolioData;
@@ -13,14 +13,14 @@ const Projects = () => {
         <div className="mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/3 border border-white/8 mb-4">
             <div className="w-1.5 h-1.5 rounded-full bg-[#00f3ff] animate-pulse" />
-            <span className="text-[10px] uppercase tracking-[0.2em] text-[#00b8db] font-medium">
+            <span className="text-[10px] uppercase tracking-[0.2em] text-[#00f3ff] font-medium">
               Portfolio
             </span>
           </div>
 
           <div className="group cursor-default">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tighter">
-              Tanlangan{" "}
+              Tanlangan{' '}
               <span className="text-[#00f3ff] transition-all duration-500 group-hover:drop-shadow-[0_0_15px_rgba(0,243,255,0.6)]">
                 Loyihalar
               </span>
@@ -29,8 +29,8 @@ const Projects = () => {
           </div>
 
           <p className="text-gray-500 mt-4 max-w-xl text-[15px] leading-relaxed">
-            Real mijozlar va startap loyihalar — har biri texnik murakkablik va
-            muhandislik yechimlari bilan.
+            Real mijozlar va startap loyihalar — har biri texnik murakkablik va muhandislik
+            yechimlari bilan.
           </p>
         </div>
 
@@ -38,7 +38,7 @@ const Projects = () => {
           {projects.map((project, idx) => (
             <Link
               key={project.id}
-              to={`/project/${project.id}`}
+              href={`/project/${project.id}`}
               className="group relative p-6 bg-white/2 border border-white/5 rounded-2xl hover:border-[#00f3ff]/20 hover:bg-white/4 transition-all duration-500 hover:-translate-y-1 overflow-hidden cursor-pointer"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-[#00f3ff]/3 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -46,18 +46,16 @@ const Projects = () => {
               <div className="relative z-10">
                 <div className="flex items-start justify-between mb-4">
                   <span className="text-[10px] font-mono text-[#5c5c5c]/60 group-hover:text-[#5c5c5c] transition-colors">
-                    {String(idx + 1).padStart(2, "0")}
+                    {String(idx + 1).padStart(2, '0')}
                   </span>
                   <div className="flex items-center gap-2">
                     {project.isRepositoryPrivate ? (
                       <span className="flex items-center gap-1 text-[10px] text-amber-500/60 border border-amber-500/20 px-2 py-0.5 rounded-full">
-                        <Lock size={10} />
-                        Private
+                        <Lock size={10} /> Private
                       </span>
                     ) : (
                       <span className="flex items-center gap-1 text-[10px] text-green-500/60 border border-green-500/20 px-2 py-0.5 rounded-full">
-                        <Github size={10} />
-                        Open Source
+                        <Github size={10} /> Open Source
                       </span>
                     )}
                     <ArrowUpRight

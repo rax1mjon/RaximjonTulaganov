@@ -5,7 +5,6 @@ export const portfolioData = {
   title: "Frontend Engineer",
   bio: "Frontend Engineer — React monorepo arxitekturalari va murakkab dashboard tizimlar (ERP, CRM, SaaS) ni ishlab chiqishga ixtisoslashgan.",
   location: "Qarshi, Qahqadaryo",
-  avatarUrl: "/uploads/avatars/6beb85e5ae624aadbeb55d07e7b1d245.jpg",
 
   skills: [
     { id: "77a0a96a-d67e-4071-82bb-b67885a33f53", name: "Advanced Git & GitHub", level: 5, category: "Version Control & Teamwork" },
@@ -156,57 +155,9 @@ export const portfolioData = {
     },
   ],
 
-  workExperiences: [
-    {
-      id: "ecc01717-68af-4568-b632-aeed11d91930",
-      company: "Jaloliddin Aliqulov",
-      experienceType: "freelance",
-      position: "Frontend Dasturchi",
-      startDate: "2026-03-13",
-      endDate: null,
-      isCurrent: true,
-    },
-    {
-      id: "ac1709b3-d614-4f68-bd66-5869e8e1afde",
-      company: "Procraft",
-      experienceType: "project",
-      position: "Asoschi, Frontend Developer",
-      startDate: "2026-01-12",
-      endDate: null,
-      isCurrent: true,
-    },
-    {
-      id: "ea220a50-03c0-4e83-af05-2868c647972a",
-      company: "EduShareUz",
-      experienceType: "freelance",
-      position: "Frontend Dasturchi",
-      startDate: "2025-11-23",
-      endDate: "2025-12-10",
-      isCurrent: false,
-    },
-    {
-      id: "98673dc9-0603-489e-8119-a7ab5d8a760b",
-      company: "Abdulaziz Tohirov",
-      experienceType: "freelance",
-      position: "Frontend Dasturchi",
-      startDate: "2025-11-14",
-      endDate: "2025-12-19",
-      isCurrent: false,
-    },
-    {
-      id: "5279de13-529a-4940-9a8e-77c22b1bcf54",
-      company: "<COUNT>",
-      experienceType: "internship",
-      position: "Frontend Dasturchi (stajyor)",
-      startDate: "2025-08-01",
-      endDate: "2025-09-15",
-      isCurrent: false,
-    },
-  ],
-
   socialLinks: [
-    { platform: "Instagram", url: "https://www.instagram.com/coder_rxm/" },
-    { platform: "Telegram", url: "https://t.me/coder_rxm" },
+    { platform: "Instagram", url: "https://www.instagram.com/raximjon_tulaganov/" },
+    { platform: "Telegram", url: "https://t.me/Raximjon_Tulaganov" },
     { platform: "GitHub", url: "https://github.com/rax1mjon/" },
     { platform: "LinkedIn", url: "https://www.linkedin.com/in/raximjon-tulaganov-448602347/" },
     { platform: "Phone", url: "tel:+998978040623" },
