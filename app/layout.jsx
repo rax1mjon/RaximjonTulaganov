@@ -1,8 +1,7 @@
 import './globals.css';
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
-
-const BASE_URL = 'https://raximjon-tulaganov.vercel.app';
+import { SITE_URL as BASE_URL, GOOGLE_SITE_VERIFICATION } from '@/lib/site';
 
 export const metadata = {
   metadataBase: new URL(BASE_URL),
@@ -38,26 +37,18 @@ export const metadata = {
   openGraph: {
     type: 'website',
     locale: 'uz_UZ',
-    alternateLocale: ['ru_RU', 'en_US'],
     url: BASE_URL,
     siteName: 'Raximjon Tulaganov',
     title: 'Raximjon Tulaganov — Frontend Engineer',
     description:
       "TurboRepo monorepo, SaaS platformalar va enterprise tizimlar mutaxassisi. Qarshi, O'zbekiston.",
-    images: [
-      {
-        url: '/avatar.jpg',
-        width: 600,
-        height: 800,
-        alt: 'Raximjon Tulaganov — Frontend Engineer',
-      },
-    ],
+    // og:image avtomatik ravishda app/opengraph-image.jsx (1200×630) dan olinadi.
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Raximjon Tulaganov — Frontend Engineer',
     description: "TurboRepo monorepo, SaaS platformalar va enterprise tizimlar mutaxassisi.",
-    images: ['/avatar.jpg'],
+    // twitter:image yo'q bo'lsa, kraulerlar og:image (yuqoridagi) ga qaytadi.
   },
   robots: {
     index: true,
@@ -72,6 +63,9 @@ export const metadata = {
   },
   alternates: {
     canonical: BASE_URL,
+  },
+  verification: {
+    google: GOOGLE_SITE_VERIFICATION,
   },
 };
 

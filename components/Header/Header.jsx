@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Code2, Layers, Briefcase, Mail, IdCardLanyard } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 const navLinks = [
@@ -54,7 +55,7 @@ const Header = () => {
         <div className="max-w-6xl mx-auto gap-3 px-3 flex justify-between items-center">
           <Link href="/" className="flex items-center gap-2.5 group">
             <div className="w-9 h-9 border border-white/20 rounded-lg flex items-center justify-center group-hover:border-cyan-400/50 group-hover:shadow-[0_0_12px_rgba(6,182,212,0.3)] transition-all duration-300 overflow-hidden bg-white/3">
-              <img src="/RTB.jpg" alt="RT" loading="lazy" className="w-full h-full object-cover" />
+              <Image src="/RTB.jpg" alt="Raximjon Tulaganov logotipi" width={36} height={36} className="w-full h-full object-cover" />
             </div>
             <span className="text-[14px] font-bold text-white group-hover:text-cyan-400 transition-colors tracking-tight">
               Raximjon Tulaganov

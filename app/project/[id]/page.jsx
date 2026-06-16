@@ -2,8 +2,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, ExternalLink, Github, Lock, Globe } from 'lucide-react';
 import { portfolioData } from '@/data/portfolioData';
-
-const BASE_URL = 'https://raximjon-tulaganov.vercel.app';
+import { SITE_URL as BASE_URL } from '@/lib/site';
 
 export async function generateStaticParams() {
   return portfolioData.projects.map((project) => ({ id: project.id }));
@@ -26,7 +25,7 @@ export async function generateMetadata({ params }) {
       description,
       url: `${BASE_URL}/project/${project.id}`,
       type: 'website',
-      images: [{ url: '/avatar.jpg', width: 600, height: 800, alt: project.name }],
+      // og:image avtomatik ravishda app/opengraph-image.jsx dan meros qilib olinadi.
     },
     alternates: { canonical: `${BASE_URL}/project/${project.id}` },
   };

@@ -1,6 +1,5 @@
 import { portfolioData } from '@/data/portfolioData';
-
-const BASE_URL = 'https://raximjon-tulaganov.vercel.app';
+import { SITE_URL as BASE_URL } from '@/lib/site';
 
 export default function sitemap() {
   const projectUrls = portfolioData.projects.map((project) => ({
