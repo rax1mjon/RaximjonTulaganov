@@ -17,7 +17,7 @@ const socialLinks = [
 ];
 
 const Footer = () => {
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [form, setForm] = useState({ name: '', contact: '', message: '' });
   const [status, setStatus] = useState('idle');
 
   const handleChange = (e) =>
@@ -25,13 +25,13 @@ const Footer = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!form.name || !form.message) return;
+    if (!form.name || !form.contact || !form.message) return;
     setStatus('loading');
 
     const text =
       `📩 *Yangi xabar — Portfolio*\n\n` +
       `👤 *Ism:* ${form.name}\n` +
-      `📧 *Email:* ${form.email || '—'}\n\n` +
+      `📱 *Aloqa:* ${form.contact}\n\n` +
       `💬 *Xabar:*\n${form.message}`;
 
     try {
@@ -46,7 +46,7 @@ const Footer = () => {
       const data = await res.json();
       if (data.ok) {
         setStatus('success');
-        setForm({ name: '', email: '', message: '' });
+        setForm({ name: '', contact: '', message: '' });
         setTimeout(() => setStatus('idle'), 4000);
       } else {
         setStatus('error');
@@ -93,11 +93,12 @@ const Footer = () => {
                   className="w-full bg-white/3 border border-white/8 rounded-xl px-4 py-3 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-[#00f3ff]/40 focus:bg-white/5 transition-all"
                 />
                 <input
-                  type="email"
-                  name="email"
-                  value={form.email}
+                  type="text"
+                  name="contact"
+                  value={form.contact}
                   onChange={handleChange}
-                  placeholder="Email (ixtiyoriy)"
+                  placeholder="Telegram yoki telefon *"
+                  required
                   className="w-full bg-white/3 border border-white/8 rounded-xl px-4 py-3 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-[#00f3ff]/40 focus:bg-white/5 transition-all"
                 />
               </div>
