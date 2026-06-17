@@ -110,12 +110,12 @@ export const portfolioData = {
     },
     {
       id: "6b0d2061-bc0b-41db-bb5e-14f66ec2a314",
-      name: "Personal Portfolio Website",
-      description: "Shaxsiy portfolio sayti — React 19, TailwindCSS v4 yordamida qurilgan zamonaviy bir sahifali ilova (SPA). Lucide React ikonlari, hash-link navigatsiya, responsive dizayn. Loyihalar, ko'nikmalar va tajriba bo'limlari mavjud. Vite 7 bilan tezkor build va hot reload ta'minlangan.",
+      name: "Personal Portfolio — Next.js 15 & SEO Engineering",
+      description: "Shaxsiy portfolio sayti — Vite SPA dan Next.js 15 App Router ga to'liq migratsiya qilingan, React 19 va TailwindCSS v4 asosida. Static Site Generation (generateStaticParams) bilan loyiha sahifalari oldindan render qilinadi, har bir sahifa uchun alohida metadata. SEO arxitekturasi: JSON-LD structured data (Person, WebSite va SoftwareApplication schema), next/og bilan dinamik 1200×630 Open Graph rasm generatsiyasi, dasturiy sitemap.js va robots.js, canonical URL'lar, har bir loyiha uchun generateMetadata. Performance: next/image bilan avtomatik WebP optimizatsiya va LCP priority, font optimizatsiya. Dinamik /project/[id] route'lar prev/next navigatsiya bilan. Lucide React ikonlari, dark theme (#080808 fon, #00f3ff accent), responsive dizayn. Deployment: o'z VPS serverida pm2 process menejeri, Nginx reverse proxy, Let's Encrypt SSL va Cloudflare CDN orqali raximjon.uz domeniga ulangan. Google Search Console bilan sitemap submit va indekslash monitoringi.",
       githubUrl: "https://github.com/rax1mjon/RaximjonTulaganov",
       isRepositoryPrivate: false,
       liveUrl: "https://raximjon.uz",
-      tags: ["React 19", "TailwindCSS v4", "Vite 7", "SPA"],
+      tags: ["Next.js 15", "React 19", "TailwindCSS v4", "SSG", "SEO", "JSON-LD", "next/og", "Nginx"],
     },
     {
       id: "78715f29-90e1-4f75-8080-1db50dcf7a03",
