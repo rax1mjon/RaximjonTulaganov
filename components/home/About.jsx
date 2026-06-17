@@ -64,9 +64,9 @@ const About = () => {
                     <div className="mb-4 text-[#00f3ff]/80 group-hover:text-[#00f3ff] transition-colors duration-300">
                       {item.icon}
                     </div>
-                    <h4 className="text-[15px] font-semibold text-white/90 mb-2 tracking-wide group-hover:text-white transition-colors">
+                    <h3 className="text-[15px] font-semibold text-white/90 mb-2 tracking-wide group-hover:text-white transition-colors">
                       {item.title}
-                    </h4>
+                    </h3>
                     <p className="text-[13px] text-gray-500 leading-relaxed font-light group-hover:text-gray-400 transition-colors">
                       {item.desc}
                     </p>
@@ -99,16 +99,16 @@ const About = () => {
                     </p>
                   </li>
                 ))}
-
-                <div className="mt-6 flex gap-4">
-                  <span className="text-xs bg-blue-600/20 text-blue-400 px-3 py-1 rounded-full border border-blue-600/30">
-                    Math & Logic Certified
-                  </span>
-                  <span className="text-xs bg-green-600/20 text-green-400 px-3 py-1 rounded-full border border-green-600/30">
-                    English Proficiency
-                  </span>
-                </div>
               </ul>
+
+              <div className="mt-6 flex gap-4">
+                <span className="text-xs bg-blue-600/20 text-blue-400 px-3 py-1 rounded-full border border-blue-600/30">
+                  Math & Logic Certified
+                </span>
+                <span className="text-xs bg-green-600/20 text-green-400 px-3 py-1 rounded-full border border-green-600/30">
+                  English Proficiency
+                </span>
+              </div>
 
               <div className="mt-8 pt-8 border-t border-white/5 flex items-center justify-between">
                 {[

@@ -37,6 +37,8 @@ const Header = () => {
             title="PDF Preview"
           />
           <button
+            type="button"
+            aria-label="Yopish"
             onClick={() => setShowPdf(false)}
             className="absolute top-8 right-8 bg-black/70 rounded hover:opacity-80 transition-opacity"
           >
@@ -120,6 +122,9 @@ const Header = () => {
 
             {/* Hamburger */}
             <button
+              type="button"
+              aria-label="Menyu"
+              aria-expanded={isOpen}
               className="md:hidden text-white mt-1 relative w-6 h-6"
               onClick={() => setIsOpen(!isOpen)}
             >
