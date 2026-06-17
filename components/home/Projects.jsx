@@ -10,7 +10,7 @@ const Projects = () => {
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#00f3ff]/3 rounded-full blur-[140px]" />
 
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="mb-16">
+        <div className="reveal up mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/3 border border-white/8 mb-4">
             <div className="w-1.5 h-1.5 rounded-full bg-[#00f3ff] animate-pulse" />
             <span className="text-[10px] uppercase tracking-[0.2em] text-[#00f3ff] font-medium">
@@ -39,7 +39,8 @@ const Projects = () => {
             <Link
               key={project.id}
               href={`/project/${project.id}`}
-              className="group relative p-6 bg-white/2 border border-white/5 rounded-2xl hover:border-[#00f3ff]/20 hover:bg-white/4 transition-all duration-500 hover:-translate-y-1 overflow-hidden cursor-pointer"
+              style={{ transitionDelay: `${Math.floor(idx / 2) * 90}ms` }}
+              className={`reveal ${idx % 2 === 0 ? 'left' : 'right'} group relative p-6 bg-white/2 border border-white/5 rounded-2xl hover:border-[#00f3ff]/20 hover:bg-white/4 transition-all duration-500 hover:-translate-y-1 overflow-hidden cursor-pointer`}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-[#00f3ff]/3 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 

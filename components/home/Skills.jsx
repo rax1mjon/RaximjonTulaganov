@@ -32,7 +32,7 @@ const Skills = () => {
 
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-2 gap-8">
-          <div className="mb-8 flex flex-col items-start">
+          <div className="reveal up mb-8 flex flex-col items-start">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/3 border border-white/8 mb-4">
               <div className="w-1.5 h-1.5 rounded-full bg-[#00f3ff] animate-pulse" />
               <span className="text-[10px] uppercase tracking-[0.2em] text-[#00b8db] font-medium">
@@ -59,7 +59,8 @@ const Skills = () => {
           {skillGroups.map((group, idx) => (
             <div
               key={idx}
-              className={`group relative p-6 sm:p-8 transition-all duration-700
+              style={{ transitionDelay: `${(idx % 4) * 70}ms` }}
+              className={`reveal up group relative p-6 sm:p-8 transition-all duration-700
                 ${idx % 4 !== 3 ? 'lg:border-r' : ''}
                 ${idx % 2 !== 1 ? 'md:border-r lg:border-r-0' : ''}
                 ${idx < 4 ? 'lg:border-b' : ''}

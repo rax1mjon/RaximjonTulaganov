@@ -29,7 +29,7 @@ const About = () => {
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#00f3ff]/5 rounded-full blur-[120px] animate-pulse" />
 
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="mb-16 group cursor-default">
+        <div className="reveal up mb-16 group cursor-default">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tighter">
             Frontend Engineer —{' '}
             <span className="text-[#00f3ff] transition-all duration-500 group-hover:drop-shadow-[0_0_15px_rgba(0,243,255,0.6)]">
@@ -41,7 +41,7 @@ const About = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-7 space-y-6">
-            <p className="text-xl text-gray-400 leading-relaxed font-light">
+            <p className="reveal left text-xl text-gray-400 leading-relaxed font-light">
               <span className="hover:text-white transition-colors duration-300">
                 Men — TurboRepo monorepo arxitekturasi asosida ko'p ilovali enterprise tizimlar
                 quruvchi Frontend Engineerman.{' '}
@@ -56,7 +56,8 @@ const About = () => {
               {principles.map((item, index) => (
                 <div
                   key={index}
-                  className="p-6 bg-white/2 border border-white/5 rounded-xl transition-all duration-500 hover:bg-white/4 hover:border-[#00f3ff]/20 hover:-translate-y-1 group cursor-default relative overflow-hidden"
+                  style={{ transitionDelay: `${index * 90}ms` }}
+                  className="reveal up p-6 bg-white/2 border border-white/5 rounded-xl transition-all duration-500 hover:bg-white/4 hover:border-[#00f3ff]/20 hover:-translate-y-1 group cursor-default relative overflow-hidden"
                 >
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="relative z-10">
@@ -75,7 +76,7 @@ const About = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-5 space-y-6">
+          <div className="reveal right lg:col-span-5 space-y-6">
             <div className="bg-[#0c0c0c] border border-white/5 p-8 rounded-4xl relative overflow-hidden group animate-float shadow-2xl">
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 

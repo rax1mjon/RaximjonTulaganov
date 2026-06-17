@@ -35,8 +35,23 @@ html {
   to   { transform: translateX(100%); }
 }
 
-.reveal-on-scroll {
-  transition: all 0.8s cubic-bezier(0.17, 0.55, 0.55, 1);
+/* ── Scroll reveal (ScrollReveal.jsx tomonidan ishga tushiriladi) ── */
+/* .reveal-ready ostida — JS o'chiq bo'lsa hech narsa yashirilmaydi */
+.reveal-ready .reveal {
+  opacity: 0;
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-ready .reveal.up    { transform: translate3d(0, 42px, 0); }
+.reveal-ready .reveal.down  { transform: translate3d(0, -42px, 0); }
+.reveal-ready .reveal.left  { transform: translate3d(-64px, 0, 0); }
+.reveal-ready .reveal.right { transform: translate3d(64px, 0, 0); }
+.reveal-ready .reveal.zoom  { transform: scale(0.92); }
+.reveal-ready .reveal.in {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
 }
 
 /* ── Hero grid background ── */

@@ -1,6 +1,7 @@
 import './globals.css';
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
+import ScrollReveal from '@/components/ScrollReveal';
 import { SITE_URL as BASE_URL, GOOGLE_SITE_VERIFICATION } from '@/lib/site';
 
 export const metadata = {
@@ -122,6 +123,11 @@ export default function RootLayout({ children }) {
     <html lang="uz" suppressHydrationWarning>
       <head>
         <script
+          dangerouslySetInnerHTML={{
+            __html: "document.documentElement.classList.add('reveal-ready')",
+          }}
+        />
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
@@ -131,6 +137,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="bg-black text-white antialiased">
+        <ScrollReveal />
         <Header />
         <main className="min-h-screen bg-black/40 pt-9">
           {children}
