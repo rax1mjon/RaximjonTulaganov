@@ -76,7 +76,7 @@ const Footer = () => {
                 Loyiha bormi?{' '}
                 <span className="text-[#00f3ff]">Gaplashamiz.</span>
               </h3>
-              <p className="text-gray-600 text-sm">
+              <p className="text-gray-400 text-sm">
                 Loyiha, hamkorlik yoki savol bo'lsa — yozing. 24 soat ichida javob beraman.
               </p>
             </div>
@@ -149,7 +149,7 @@ const Footer = () => {
                     href={item.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-gray-500 hover:text-white transition-all duration-300 group"
+                    className="flex items-center gap-3 text-gray-400 hover:text-white transition-all duration-300 group"
                   >
                     <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-white/2 border border-white/5 group-hover:border-[#00f3ff]/20 group-hover:bg-[#00f3ff]/5 transition-all duration-300">
                       <span className="group-hover:scale-110 transition-transform duration-300 text-gray-600 group-hover:text-[#00f3ff]">
@@ -174,7 +174,7 @@ const Footer = () => {
                 rel="noreferrer"
                 className="flex items-center justify-between p-3 bg-white/2 border border-white/5 rounded-xl hover:border-[#00f3ff]/20 hover:bg-white/4 transition-all group"
               >
-                <span className="text-gray-500 group-hover:text-white text-sm transition-colors">
+                <span className="text-gray-400 group-hover:text-white text-sm transition-colors">
                   Download CV (PDF)
                 </span>
                 <Download size={16} className="text-[#00f3ff]/60 group-hover:text-[#00f3ff] transition-colors" />
@@ -184,10 +184,10 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-3">
-          <p className="text-gray-700 text-xs">
+          <p className="text-gray-400 text-xs">
             © 2026 Raximjon Tulaganov — Built with Next.js & TailwindCSS
           </p>
-          <p className="text-gray-700 text-xs">
+          <p className="text-gray-400 text-xs">
             Mathematics · English · Guitar · Calisthenics
           </p>
         </div>

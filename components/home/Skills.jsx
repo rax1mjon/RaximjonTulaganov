@@ -79,9 +79,9 @@ const Skills = () => {
                   </span>
                 </div>
 
-                <h4 className="text-[13px] font-semibold text-white/90 mb-4 tracking-tight uppercase group-hover:tracking-widest transition-all duration-500 leading-snug">
+                <h3 className="text-[13px] font-semibold text-white/90 mb-4 tracking-tight uppercase group-hover:tracking-widest transition-all duration-500 leading-snug">
                   {group.category}
-                </h4>
+                </h3>
 
                 <div className="flex flex-wrap gap-x-3 gap-y-2.5 mt-auto">
                   {group.items.map((skill, i) => (
