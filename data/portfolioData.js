@@ -114,7 +114,7 @@ export const portfolioData = {
       description: "Shaxsiy portfolio sayti — React 19, TailwindCSS v4 yordamida qurilgan zamonaviy bir sahifali ilova (SPA). Lucide React ikonlari, hash-link navigatsiya, responsive dizayn. Loyihalar, ko'nikmalar va tajriba bo'limlari mavjud. Vite 7 bilan tezkor build va hot reload ta'minlangan.",
       githubUrl: "https://github.com/rax1mjon/RaximjonTulaganov",
       isRepositoryPrivate: false,
-      liveUrl: "https://raximjon-tulaganov.vercel.app",
+      liveUrl: "https://raximjon.uz",
       tags: ["React 19", "TailwindCSS v4", "Vite 7", "SPA"],
     },
     {
