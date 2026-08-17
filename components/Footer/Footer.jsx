@@ -13,7 +13,7 @@ const socialLinks = [
   { icon: <Linkedin size={18} strokeWidth={1.5} />, label: 'LinkedIn', link: 'https://www.linkedin.com/in/raximjon-tulaganov-448602347/' },
   { icon: <Github size={18} strokeWidth={1.5} />, label: 'GitHub', link: 'https://github.com/rax1mjon/' },
   { icon: <Send size={18} strokeWidth={1.5} />, label: 'Telegram', link: 'https://t.me/Raximjon_Tulaganov' },
-  { icon: <Instagram size={18} strokeWidth={1.5} />, label: 'Instagram', link: 'https://www.instagram.com/raximjon_tulaganov/' },
+  { icon: <Instagram size={18} strokeWidth={1.5} />, label: 'Instagram', link: 'https://www.instagram.com/raximjon.dev/' },
 ];
 
 const Footer = () => {

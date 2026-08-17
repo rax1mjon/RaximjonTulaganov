@@ -91,7 +91,7 @@ const personJsonLd = {
     'https://github.com/rax1mjon/',
     'https://www.linkedin.com/in/raximjon-tulaganov-448602347/',
     'https://t.me/Raximjon_Tulaganov',
-    'https://www.instagram.com/raximjon_tulaganov/',
+    'https://www.instagram.com/raximjon.dev/',
   ],
   knowsAbout: [
     'React',

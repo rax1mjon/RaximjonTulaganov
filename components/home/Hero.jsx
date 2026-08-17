@@ -5,7 +5,7 @@ const socialLinks = [
   { icon: <Github size={22} />,    href: 'https://github.com/rax1mjon/', label: 'GitHub' },
   { icon: <Linkedin size={22} />,  href: 'https://www.linkedin.com/in/raximjon-tulaganov-448602347/', label: 'LinkedIn' },
   { icon: <Send size={22} />,      href: 'https://t.me/Raximjon_Tulaganov', label: 'Telegram' },
-  { icon: <Instagram size={22} />, href: 'https://www.instagram.com/raximjon_tulaganov/', label: 'Instagram' },
+  { icon: <Instagram size={22} />, href: 'https://www.instagram.com/raximjon.dev/', label: 'Instagram' },
   { icon: <Mail size={22} />,      href: 'mailto:tulaganovraximjon65@gmail.com', label: 'Email' },
 ];
 

@@ -156,7 +156,7 @@ export const portfolioData = {
   ],
 
   socialLinks: [
-    { platform: "Instagram", url: "https://www.instagram.com/raximjon_tulaganov/" },
+    { platform: "Instagram", url: "https://www.instagram.com/raximjon.dev/" },
     { platform: "Telegram", url: "https://t.me/Raximjon_Tulaganov" },
     { platform: "GitHub", url: "https://github.com/rax1mjon/" },
     { platform: "LinkedIn", url: "https://www.linkedin.com/in/raximjon-tulaganov-448602347/" },
