@@ -46,8 +46,8 @@ const About = () => {
                 Men — TurboRepo monorepo arxitekturasi asosida ko'p ilovali enterprise tizimlar
                 quruvchi Frontend Engineerman.{' '}
                 <span className="text-white/70">Procraft</span> (4 app, 7 shared package, UZ/EN/RU
-                i18n) va <span className="text-white/70">Urtak</span> (3 app, 5 shared package, 4
-                rol ERP) — ikkala SaaS platformasini noldan arxitektura qilib, ishlab chiqdim.
+                i18n) va <span className="text-white/70">CPA Marketplace</span> (3 app, 5 shared
+                package, 4 rol) — ikkala SaaS platformasini noldan arxitektura qilib, ishlab chiqdim.
                 Docker + Nginx deployment va Cloudflare CDN integratsiyalari ham mening stegim.
               </span>
             </p>
