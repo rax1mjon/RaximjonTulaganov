@@ -137,12 +137,12 @@ export const portfolioData = {
     },
     {
       id: "f653b05c-83b5-47bc-a286-d53c16e36a2e",
-      name: "Urtak — E-Commerce & ERP Platform (Monorepo)",
-      description: "Urtak — o'zbek tilidagi to'liq e-commerce va ichki boshqaruv platformasi. TurboRepo + pnpm workspace asosida 3 ta alohida app: urtak.uz (xaridor sayti), dashboard.urtak.uz (admin panel), seller.urtak.uz (sotuvchi paneli). 5 ta shared package: @urtak/config (design tokens), @urtak/store (Redux), @urtak/server (Axios + 13 ta servis), @urtak/hooks (TanStack Query), @urtak/ui (umumiy komponentlar). Dashboard da 4 xil rol: superadmin, omborchi, operator, kuryer — har biri uchun alohida routing va menyu. JWT auth: Axios interceptor orqali access token avtomatik yangilanishi. Cloudflare Images CDN integratsiya — direct upload URL pattern. React Lazy + Suspense bilan kod splitting. Real API: api.urtak.uz. Nginx subdomain routing.",
+      name: "CPA Marketplace (Monorepo)",
+      description: "CPA marketplace platformasi. TurboRepo + pnpm workspace asosida 3 ta alohida app: urtak.uz (hamkorlar sayti), dashboard.urtak.uz (admin panel), seller.urtak.uz (webmaster paneli). 5 ta shared package: @urtak/config (design tokens), @urtak/store (Redux), @urtak/server (Axios + 13 ta servis), @urtak/hooks (TanStack Query), @urtak/ui (umumiy komponentlar). Dashboard da 4 xil rol: superadmin, omborchi, operator, kuryer — har biri uchun alohida routing va menyu. JWT auth: Axios interceptor orqali access token avtomatik yangilanishi. Cloudflare Images CDN integratsiya — direct upload URL pattern. React Lazy + Suspense bilan kod splitting. Real API: api.urtak.uz. Nginx subdomain routing.",
       githubUrl: null,
       isRepositoryPrivate: true,
       liveUrl: "https://urtak.uz/",
-      tags: ["TurboRepo", "Monorepo", "React", "Redux", "TanStack Query", "JWT", "Cloudflare", "Nginx", "ERP", "E-Commerce"],
+      tags: ["TurboRepo", "Monorepo", "React", "Redux", "TanStack Query", "JWT", "Cloudflare", "Nginx", "CPA Marketplace"],
     },
     {
       id: "7ebd4245-9758-45e0-87fe-1858579477c1",
