@@ -136,15 +136,6 @@ export const portfolioData = {
       tags: ["HTML5", "SCSS", "BEM", "Vanilla JS", "Dark Mode"],
     },
     {
-      id: "f653b05c-83b5-47bc-a286-d53c16e36a2e",
-      name: "CPA Marketplace (Monorepo)",
-      description: "CPA marketplace platformasi. TurboRepo + pnpm workspace asosida 3 ta alohida app: urtak.uz (hamkorlar sayti), dashboard.urtak.uz (admin panel), seller.urtak.uz (webmaster paneli). 5 ta shared package: @urtak/config (design tokens), @urtak/store (Redux), @urtak/server (Axios + 13 ta servis), @urtak/hooks (TanStack Query), @urtak/ui (umumiy komponentlar). Dashboard da 4 xil rol: superadmin, omborchi, operator, kuryer — har biri uchun alohida routing va menyu. JWT auth: Axios interceptor orqali access token avtomatik yangilanishi. Cloudflare Images CDN integratsiya — direct upload URL pattern. React Lazy + Suspense bilan kod splitting. Real API: api.urtak.uz. Nginx subdomain routing.",
-      githubUrl: null,
-      isRepositoryPrivate: true,
-      liveUrl: "https://urtak.uz/",
-      tags: ["TurboRepo", "Monorepo", "React", "Redux", "TanStack Query", "JWT", "Cloudflare", "Nginx", "CPA Marketplace"],
-    },
-    {
       id: "7ebd4245-9758-45e0-87fe-1858579477c1",
       name: "ilxombegimqulov.uz — Personal Brand & SEO Optimization",
       description: "Ilhom Begimqulov — biznes-konsultant shaxsiy brend sayti. Statik HTML/CSS/JS arxitekturasi, 3 ta til versiyasi: lotin (index.html), kiril (kril/), rus (ru/). Cloudflare CDN orqali serve qilinadi. SEO uchun: JSON-LD structured data (Person schema) bilan alternateName pattern — Ilhom/Ilxom, kiril/lotin variantlari qidiruv natijalarida chiqishi uchun. robots.txt — test va bo'sh sahifalar bloklangan. Performance: 29 ta PNG → WebP konvertatsiya (o'rtacha 95% hajm kamaytirish), 11 ta YouTube iframe → lazy facade pattern (TBT 13,370ms → ~0ms), JS defer, Google Fonts non-blocking load. Google Search Console orqali sitemap submit va indekslash monitoring. Cloudflare Bot Management — robots.txt directive sozlash.",

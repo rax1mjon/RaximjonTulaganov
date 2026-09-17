@@ -27,7 +27,6 @@ export const metadata = {
     'Qarshi',
     'rax1mjon',
     'Procraft',
-    'CPA Marketplace',
   ],
   authors: [{ name: 'Raximjon Tulaganov', url: BASE_URL }],
   creator: 'Raximjon Tulaganov',
