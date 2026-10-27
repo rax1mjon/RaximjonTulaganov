@@ -20,12 +20,6 @@ export default function Home({ lang = 'uz' }) {
   const [copied, setCopied] = useState(false);
   const railRef = useRef(null);
   const [stackIdx, setStackIdx] = useState(0);
-  const scrollStack = (dir) => {
-    const el = railRef.current;
-    if (!el) return;
-    const card = el.querySelector('.sg');
-    el.scrollBy({ left: dir * ((card ? card.offsetWidth : 320) + 20), behavior: 'smooth' });
-  };
   const base = lang === 'en' ? '/en' : '';
 
   useCursor(root);
@@ -38,6 +32,7 @@ export default function Home({ lang = 'uz' }) {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduce) { setStep(t.agentLog.length); return undefined; }
     gsap.registerPlugin(ScrollTrigger);
+    ScrollTrigger.config({ ignoreMobileResize: true });
     const logLen = t.agentLog.length;
 
     const ctx = gsap.context(() => {
@@ -71,7 +66,8 @@ export default function Home({ lang = 'uz' }) {
       const gaugePanel = () => root.current.querySelector('.panel[data-visual="gauge"]');
 
       const mm = gsap.matchMedia();
-      mm.add('(min-width: 901px)', () => {
+      mm.add({ desktop: '(min-width: 901px)', mobile: '(max-width: 900px)' }, (mctx) => {
+        const mobile = mctx.conditions.mobile;
         const track = document.getElementById('track');
         const dist = () => Math.max(0, track.scrollWidth - window.innerWidth);
         const tween = gsap.to(track, {
@@ -80,18 +76,20 @@ export default function Home({ lang = 'uz' }) {
         });
         root.current.querySelectorAll('.panel').forEach((p) => {
           p.querySelectorAll('.par').forEach((el) => {
-            const s = parseFloat(el.dataset.speed) || 0;
-            gsap.fromTo(el, { xPercent: s * 3 }, { xPercent: -s * 3, ease: 'none', scrollTrigger: { trigger: p, containerAnimation: tween, start: 'left right', end: 'right left', scrub: true } });
+            const sp = (parseFloat(el.dataset.speed) || 0) * (mobile ? 1.5 : 3);
+            gsap.fromTo(el, { xPercent: sp }, { xPercent: -sp, ease: 'none', scrollTrigger: { trigger: p, containerAnimation: tween, start: 'left right', end: 'right left', scrub: true } });
           });
-          gsap.fromTo(p, { scale: 0.9, rotate: 1.5 }, { scale: 1, rotate: 0, ease: 'none', scrollTrigger: { trigger: p, containerAnimation: tween, start: 'left right', end: 'left 40%', scrub: true } });
+          gsap.fromTo(p, { scale: 0.9, rotate: 1.5 }, { scale: 1, rotate: 0, ease: 'none', scrollTrigger: { trigger: p, containerAnimation: tween, start: 'left right', end: mobile ? 'left 15%' : 'left 40%', scrub: true } });
         });
         bindGauge(gaugePanel(), tween);
 
         ScrollTrigger.create({
-          trigger: '.agent', start: 'top top', end: '+=1400', pin: true, scrub: true,
+          trigger: '.agent', start: 'top top', end: mobile ? '+=900' : '+=1400', pin: true, scrub: true,
           onUpdate: (self) => setStep(Math.max(1, Math.ceil(self.progress * logLen))),
         });
-        gsap.fromTo('#tl-fill', { scaleX: 0 }, { scaleX: 1, ease: 'none', scrollTrigger: { trigger: '.tline', start: 'top 80%', end: 'bottom 55%', scrub: true } });
+        if (mobile) gsap.fromTo('#tl-fill', { scaleY: 0 }, { scaleY: 1, ease: 'none', scrollTrigger: { trigger: '.tline', start: 'top 75%', end: 'bottom 60%', scrub: true } });
+        else gsap.fromTo('#tl-fill', { scaleX: 0 }, { scaleX: 1, ease: 'none', scrollTrigger: { trigger: '.tline', start: 'top 80%', end: 'bottom 55%', scrub: true } });
+        gsap.from('.ti', { y: 40, opacity: 0, stagger: 0.12, ease: 'power3.out', duration: 1, scrollTrigger: { trigger: '.tline', start: 'top 80%' } });
 
         const sTrack = document.getElementById('stack-track');
         const sDist = () => Math.max(0, sTrack.scrollWidth - window.innerWidth);
@@ -107,27 +105,10 @@ export default function Home({ lang = 'uz' }) {
           },
         });
         sCards.forEach((c) => {
-          gsap.fromTo(c, { scale: 0.86, rotateY: -14, opacity: 0.35, transformPerspective: 1200 }, { scale: 1, rotateY: 0, opacity: 1, transformPerspective: 1200, ease: 'none', scrollTrigger: { trigger: c, containerAnimation: sTween, start: 'left 100%', end: 'left 62%', scrub: true } });
-          gsap.from(c.querySelectorAll('li'), { x: 40, opacity: 0, stagger: 0.06, ease: 'power3.out', duration: 0.8, scrollTrigger: { trigger: c, containerAnimation: sTween, start: 'left 88%', toggleActions: 'play none none reverse' } });
+          gsap.fromTo(c, { scale: 0.86, rotateY: -14, opacity: 0.35, transformPerspective: 1200 }, { scale: 1, rotateY: 0, opacity: 1, transformPerspective: 1200, ease: 'none', scrollTrigger: { trigger: c, containerAnimation: sTween, start: 'left 100%', end: mobile ? 'left 20%' : 'left 62%', scrub: true } });
+          gsap.from(c.querySelectorAll('li'), { x: 40, opacity: 0, stagger: 0.06, ease: 'power3.out', duration: 0.8, scrollTrigger: { trigger: c, containerAnimation: sTween, start: mobile ? 'left 70%' : 'left 88%', toggleActions: 'play none none reverse' } });
           gsap.fromTo(c.querySelector('.sg-big'), { yPercent: 30 }, { yPercent: -30, ease: 'none', scrollTrigger: { trigger: c, containerAnimation: sTween, start: 'left right', end: 'right left', scrub: true } });
         });
-        gsap.from('.ti', { y: 40, opacity: 0, stagger: 0.12, ease: 'power3.out', duration: 1, scrollTrigger: { trigger: '.tline', start: 'top 80%' } });
-      });
-      mm.add('(max-width: 900px)', () => {
-        bindGauge(gaugePanel(), null);
-        root.current.querySelectorAll('.tl').forEach((l, i) => {
-          ScrollTrigger.create({ trigger: l, start: 'top 75%', onEnter: () => setStep((s) => Math.max(s, i + 1)) });
-        });
-        gsap.fromTo('#tl-fill', { scaleY: 0 }, { scaleY: 1, ease: 'none', scrollTrigger: { trigger: '.tline', start: 'top 75%', end: 'bottom 60%', scrub: true } });
-        const rail = railRef.current;
-        const onRail = () => {
-          const max = rail.scrollWidth - rail.clientWidth || 1;
-          const pr = rail.scrollLeft / max;
-          gsap.set('#stack-progress', { scaleX: pr });
-          setStackIdx(Math.min(stack.length - 1, Math.round(pr * (stack.length - 1))));
-        };
-        rail.addEventListener('scroll', onRail, { passive: true });
-        return () => rail.removeEventListener('scroll', onRail);
       });
 
     }, root);
@@ -345,10 +326,6 @@ export default function Home({ lang = 'uz' }) {
               <span className="sm-of">/ {String(stack.length).padStart(2, '0')}</span>
               <span className="sm-bar"><i id="stack-progress" /></span>
             </div>
-            <div className="stack-btns">
-              <button type="button" aria-label="Prev" onClick={() => scrollStack(-1)}>←</button>
-              <button type="button" aria-label="Next" onClick={() => scrollStack(1)}>→</button>
-            </div>
           </div>
           <div className="stack-rail" ref={railRef}>
             <div className="stack-track" id="stack-track">
@@ -371,7 +348,15 @@ export default function Home({ lang = 'uz' }) {
         <section className="contact wrap" id="aloqa" aria-labelledby="contact-title">
           <p className="small">{t.contactSmall}</p>
           <h2 id="contact-title">{t.contactTitle}</h2>
-          <a className="orb" href={contacts.telegram} target="_blank" rel="noopener" data-magnetic="0.5">{t.ctaTelegram}</a>
+          <a className="orb" href={contacts.telegram} target="_blank" rel="noopener" data-magnetic="0.5" aria-label={t.ctaTelegram}>
+            <svg className="orb-ring" viewBox="0 0 200 200" aria-hidden="true">
+              <defs><path id="orb-path" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0" /></defs>
+              <text><textPath href="#orb-path" startOffset="0" textLength="486" lengthAdjust="spacing">{`${t.ctaTelegram} · ${t.ctaTelegram} · `}</textPath></text>
+            </svg>
+            <span className="orb-core" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round"><path d="M21.5 3.5 2.8 10.7c-.9.4-.9 1.6 0 1.9l4.6 1.5 1.8 5.6c.3.8 1.3 1 1.9.4l2.6-2.5 4.7 3.5c.7.5 1.7.1 1.9-.7l3.2-15.2c.2-1-.8-1.8-1.7-1.4Z" /><path d="m7.4 14.1 10-7.1-7.7 8.6" /></svg>
+            </span>
+          </a>
           <ContactForm lang={lang} />
           <div className="links">
             <a href={contacts.github} target="_blank" rel="noopener">GitHub</a>
