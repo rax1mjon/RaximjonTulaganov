@@ -19,6 +19,7 @@ export default function Home({ lang = 'uz' }) {
   const [step, setStep] = useState(1);
   const [copied, setCopied] = useState(false);
   const railRef = useRef(null);
+  const [stackIdx, setStackIdx] = useState(0);
   const scrollStack = (dir) => {
     const el = railRef.current;
     if (!el) return;
@@ -91,6 +92,25 @@ export default function Home({ lang = 'uz' }) {
           onUpdate: (self) => setStep(Math.max(1, Math.ceil(self.progress * logLen))),
         });
         gsap.fromTo('#tl-fill', { scaleX: 0 }, { scaleX: 1, ease: 'none', scrollTrigger: { trigger: '.tline', start: 'top 80%', end: 'bottom 55%', scrub: true } });
+
+        const sTrack = document.getElementById('stack-track');
+        const sDist = () => Math.max(0, sTrack.scrollWidth - window.innerWidth + 40);
+        const sCards = root.current.querySelectorAll('.sg');
+        const sTween = gsap.to(sTrack, {
+          x: () => -sDist(), ease: 'none',
+          scrollTrigger: {
+            trigger: '.stack', start: 'top top', end: () => `+=${sDist()}`, pin: true, scrub: 1, invalidateOnRefresh: true, anticipatePin: 1,
+            onUpdate: (self) => {
+              gsap.set('#stack-progress', { scaleX: self.progress });
+              setStackIdx(Math.min(sCards.length - 1, Math.round(self.progress * (sCards.length - 1))));
+            },
+          },
+        });
+        sCards.forEach((c) => {
+          gsap.fromTo(c, { scale: 0.86, rotateY: -14, opacity: 0.35, transformPerspective: 1200 }, { scale: 1, rotateY: 0, opacity: 1, transformPerspective: 1200, ease: 'none', scrollTrigger: { trigger: c, containerAnimation: sTween, start: 'left 95%', end: 'left 45%', scrub: true } });
+          gsap.from(c.querySelectorAll('li'), { x: 40, opacity: 0, stagger: 0.06, ease: 'power3.out', duration: 0.8, scrollTrigger: { trigger: c, containerAnimation: sTween, start: 'left 70%', toggleActions: 'play none none reverse' } });
+          gsap.fromTo(c.querySelector('.sg-big'), { yPercent: 30 }, { yPercent: -30, ease: 'none', scrollTrigger: { trigger: c, containerAnimation: sTween, start: 'left right', end: 'right left', scrub: true } });
+        });
         gsap.from('.ti', { y: 40, opacity: 0, stagger: 0.12, ease: 'power3.out', duration: 1, scrollTrigger: { trigger: '.tline', start: 'top 80%' } });
       });
       mm.add('(max-width: 900px)', () => {
@@ -99,6 +119,15 @@ export default function Home({ lang = 'uz' }) {
           ScrollTrigger.create({ trigger: l, start: 'top 75%', onEnter: () => setStep((s) => Math.max(s, i + 1)) });
         });
         gsap.fromTo('#tl-fill', { scaleY: 0 }, { scaleY: 1, ease: 'none', scrollTrigger: { trigger: '.tline', start: 'top 75%', end: 'bottom 60%', scrub: true } });
+        const rail = railRef.current;
+        const onRail = () => {
+          const max = rail.scrollWidth - rail.clientWidth || 1;
+          const pr = rail.scrollLeft / max;
+          gsap.set('#stack-progress', { scaleX: pr });
+          setStackIdx(Math.min(stack.length - 1, Math.round(pr * (stack.length - 1))));
+        };
+        rail.addEventListener('scroll', onRail, { passive: true });
+        return () => rail.removeEventListener('scroll', onRail);
       });
 
     }, root);
@@ -305,26 +334,37 @@ export default function Home({ lang = 'uz' }) {
         </section>
 
         <section className="stack" aria-labelledby="stack-title">
-          <div className="wrap">
-            <div className="sec-head">
+          <div className="stack-bgword" aria-hidden="true">{stack[stackIdx].name[lang]}</div>
+          <div className="wrap stack-head">
+            <div>
               <h2 id="stack-title">{t.stackTitle}</h2>
-              <div className="stack-ctl">
-                <p>{t.stackNote}</p>
-                <div className="stack-btns">
-                  <button type="button" aria-label="Prev" onClick={() => scrollStack(-1)}>←</button>
-                  <button type="button" aria-label="Next" onClick={() => scrollStack(1)}>→</button>
-                </div>
-              </div>
+              <p>{t.stackNote}</p>
+            </div>
+            <div className="stack-meter" aria-hidden="true">
+              <span className="sm-num">{String(stackIdx + 1).padStart(2, '0')}</span>
+              <span className="sm-of">/ {String(stack.length).padStart(2, '0')}</span>
+              <span className="sm-bar"><i id="stack-progress" /></span>
+            </div>
+            <div className="stack-btns">
+              <button type="button" aria-label="Prev" onClick={() => scrollStack(-1)}>←</button>
+              <button type="button" aria-label="Next" onClick={() => scrollStack(1)}>→</button>
             </div>
           </div>
-          <div className="stack-rail" ref={railRef} tabIndex={0} aria-label={t.stackTitle}>
-            {stack.map((g, gi) => (
-              <div className="sg" key={g.name.en}>
-                <span className="sg-n">{String(gi + 1).padStart(2, '0')} / {String(stack.length).padStart(2, '0')}</span>
-                <h3>{g.name[lang]}</h3>
-                <ul>{g.items.map((it) => <li key={it}>{it}</li>)}</ul>
-              </div>
-            ))}
+          <div className="stack-rail" ref={railRef}>
+            <div className="stack-track" id="stack-track">
+              {stack.map((g, gi) => (
+                <article className={`sg${gi === stackIdx ? ' on' : ''}`} key={g.name.en}>
+                  <span className="sg-big" aria-hidden="true">{String(gi + 1).padStart(2, '0')}</span>
+                  <h3>{g.name[lang]}</h3>
+                  <ol>
+                    {g.items.map((it, ii) => (
+                      <li key={it}><span className="sg-i">{String(ii + 1).padStart(2, '0')}</span><span>{it}</span></li>
+                    ))}
+                  </ol>
+                  <span className="sg-count">{g.items.length} {lang === 'en' ? 'tools' : 'ta texnologiya'}</span>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
