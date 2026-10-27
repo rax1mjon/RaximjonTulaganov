@@ -328,3 +328,15 @@ export const stack = [
   { name: { uz: 'SEO va tezlik', en: 'SEO and speed' }, items: ['Core Web Vitals', 'Lighthouse', 'JSON-LD', 'Google Search Console', 'WebP', 'Lazy yuklash', 'YouTube fasadi'] },
   { name: { uz: 'Jamoa va AI', en: 'Team and AI' }, items: ['Git', 'GitHub', 'Branch strategiyalari', 'Code review', 'Claude Code', 'Cursor', 'ChatGPT'] },
 ];
+
+export const stackEn = {
+  'Semantik HTML': 'Semantic HTML',
+  'Qayta ishlatiladigan komponentlar': 'Reusable components',
+  'Design token tizimi': 'Design token system',
+  'Umumiy paketlar': 'Shared packages',
+  'Rolga asoslangan marshrut': 'Role-based routing',
+  'Subdomen marshrutlash': 'Subdomain routing',
+  'Lazy yuklash': 'Lazy loading',
+  'YouTube fasadi': 'YouTube facade',
+  'Branch strategiyalari': 'Branching strategy',
+};

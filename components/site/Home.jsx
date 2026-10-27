@@ -9,7 +9,7 @@ import Stage from './Stage';
 import ProjectVisual from './ProjectVisual';
 import useCursor from './useCursor';
 import ContactForm from './ContactForm';
-import { dict, projects, experience, contacts, stack } from '@/data/content';
+import { dict, projects, experience, contacts, stack, stackEn } from '@/data/content';
 
 const fmt = (n) => Math.round(n).toLocaleString('en-US').replace(/,/g, ' ');
 
@@ -94,7 +94,7 @@ export default function Home({ lang = 'uz' }) {
         gsap.fromTo('#tl-fill', { scaleX: 0 }, { scaleX: 1, ease: 'none', scrollTrigger: { trigger: '.tline', start: 'top 80%', end: 'bottom 55%', scrub: true } });
 
         const sTrack = document.getElementById('stack-track');
-        const sDist = () => Math.max(0, sTrack.scrollWidth - window.innerWidth + 40);
+        const sDist = () => Math.max(0, sTrack.scrollWidth - window.innerWidth);
         const sCards = root.current.querySelectorAll('.sg');
         const sTween = gsap.to(sTrack, {
           x: () => -sDist(), ease: 'none',
@@ -107,8 +107,8 @@ export default function Home({ lang = 'uz' }) {
           },
         });
         sCards.forEach((c) => {
-          gsap.fromTo(c, { scale: 0.86, rotateY: -14, opacity: 0.35, transformPerspective: 1200 }, { scale: 1, rotateY: 0, opacity: 1, transformPerspective: 1200, ease: 'none', scrollTrigger: { trigger: c, containerAnimation: sTween, start: 'left 95%', end: 'left 45%', scrub: true } });
-          gsap.from(c.querySelectorAll('li'), { x: 40, opacity: 0, stagger: 0.06, ease: 'power3.out', duration: 0.8, scrollTrigger: { trigger: c, containerAnimation: sTween, start: 'left 70%', toggleActions: 'play none none reverse' } });
+          gsap.fromTo(c, { scale: 0.86, rotateY: -14, opacity: 0.35, transformPerspective: 1200 }, { scale: 1, rotateY: 0, opacity: 1, transformPerspective: 1200, ease: 'none', scrollTrigger: { trigger: c, containerAnimation: sTween, start: 'left 100%', end: 'left 62%', scrub: true } });
+          gsap.from(c.querySelectorAll('li'), { x: 40, opacity: 0, stagger: 0.06, ease: 'power3.out', duration: 0.8, scrollTrigger: { trigger: c, containerAnimation: sTween, start: 'left 88%', toggleActions: 'play none none reverse' } });
           gsap.fromTo(c.querySelector('.sg-big'), { yPercent: 30 }, { yPercent: -30, ease: 'none', scrollTrigger: { trigger: c, containerAnimation: sTween, start: 'left right', end: 'right left', scrub: true } });
         });
         gsap.from('.ti', { y: 40, opacity: 0, stagger: 0.12, ease: 'power3.out', duration: 1, scrollTrigger: { trigger: '.tline', start: 'top 80%' } });
@@ -358,7 +358,7 @@ export default function Home({ lang = 'uz' }) {
                   <h3>{g.name[lang]}</h3>
                   <ol>
                     {g.items.map((it, ii) => (
-                      <li key={it}><span className="sg-i">{String(ii + 1).padStart(2, '0')}</span><span>{it}</span></li>
+                      <li key={it}><span className="sg-i">{String(ii + 1).padStart(2, '0')}</span><span>{lang === 'en' ? stackEn[it] || it : it}</span></li>
                     ))}
                   </ol>
                   <span className="sg-count">{g.items.length} {lang === 'en' ? 'tools' : 'ta texnologiya'}</span>
