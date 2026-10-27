@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 
 // Ijtimoiy tarmoqlar uchun standart kartochka o'lchami.
-export const alt = 'Raximjon Tulaganov — Frontend Engineer';
+export const alt = 'Raximjon Tulaganov — Frontend / Full-Stack Developer';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -15,9 +15,9 @@ export default function OpengraphImage() {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
-          backgroundColor: '#080808',
+          backgroundColor: '#000000',
           backgroundImage:
-            'radial-gradient(circle at 78% 18%, rgba(0,243,255,0.16), transparent 42%)',
+            'radial-gradient(circle at 78% 18%, rgba(255,255,255,0.10), transparent 45%)',
           padding: '72px 80px',
           fontFamily: 'sans-serif',
         }}
@@ -28,7 +28,7 @@ export default function OpengraphImage() {
               fontSize: 26,
               letterSpacing: 6,
               textTransform: 'uppercase',
-              color: '#00f3ff',
+              color: '#8e8e8e',
             }}
           >
             raximjon.uz
@@ -56,7 +56,7 @@ export default function OpengraphImage() {
               color: '#9ca3af',
             }}
           >
-            Frontend Engineer
+            Frontend / Full-Stack Developer
           </div>
           <div
             style={{
@@ -66,12 +66,12 @@ export default function OpengraphImage() {
               color: '#5c5c5c',
             }}
           >
-            TurboRepo Monorepo · SaaS · ERP · React
+            React · Next.js · TypeScript · Node.js
           </div>
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center' }}>
-          <div style={{ width: 56, height: 4, backgroundColor: '#00f3ff' }} />
+          <div style={{ width: 56, height: 4, backgroundColor: '#ffffff' }} />
           <span style={{ marginLeft: 20, fontSize: 24, color: '#6b7280' }}>
             Qarshi, O&apos;zbekiston
           </span>

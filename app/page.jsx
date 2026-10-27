@@ -1,25 +1,16 @@
-import Hero from '@/components/home/Hero';
-import About from '@/components/home/About';
-import Skills from '@/components/home/Skills';
-import Projects from '@/components/home/Projects';
+import Home from '@/components/site/Home';
 import { SITE_URL } from '@/lib/site';
 
 export const metadata = {
-  title: 'Raximjon Tulaganov — Frontend Engineer',
+  title: { absolute: 'Raximjon Tulaganov — Frontend / Full-Stack dasturchi' },
   description:
-    "Raximjon Tulaganov shaxsiy portfolio. Frontend Engineer — TurboRepo monorepo, SaaS platformalar, ERP tizimlar. Qarshi, O'zbekiston.",
+    "Raximjon Tulaganov — frontend / full-stack dasturchi. React, Next.js, TypeScript va Node.js'da production veb-ilovalar. Qarshi, O'zbekiston. Remote ishga ochiq.",
   alternates: {
     canonical: SITE_URL,
+    languages: { uz: SITE_URL, en: `${SITE_URL}/en` },
   },
 };
 
-export default function HomePage() {
-  return (
-    <>
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-    </>
-  );
+export default function Page() {
+  return <Home lang="uz" />;
 }

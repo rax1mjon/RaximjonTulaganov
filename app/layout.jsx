@@ -1,17 +1,14 @@
 import './globals.css';
-import Header from '@/components/Header/Header';
-import Footer from '@/components/Footer/Footer';
-import ScrollReveal from '@/components/ScrollReveal';
 import { SITE_URL as BASE_URL, GOOGLE_SITE_VERIFICATION } from '@/lib/site';
 
 export const metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: 'Raximjon Tulaganov — Frontend Engineer',
+    default: 'Raximjon Tulaganov — Frontend / Full-Stack dasturchi',
     template: '%s | Raximjon Tulaganov',
   },
   description:
-    "Raximjon Tulaganov — Frontend Engineer. TurboRepo monorepo asosida ko'p ilovali SaaS platformalar, ERP tizimlar va enterprise dashboard'lar yaratuvchi React mutaxassisi. Qarshi, O'zbekiston.",
+    "Raximjon Tulaganov — frontend / full-stack dasturchi. React, Next.js, TypeScript va Node.js'da production veb-ilovalar. Qarshi, O'zbekiston.",
   keywords: [
     'Raximjon Tulaganov',
     'Frontend Engineer',
@@ -26,7 +23,9 @@ export const metadata = {
     'Uzbekistan',
     'Qarshi',
     'rax1mjon',
-    'Procraft',
+    'Full-Stack Developer',
+    'TypeScript',
+    'Node.js',
   ],
   authors: [{ name: 'Raximjon Tulaganov', url: BASE_URL }],
   creator: 'Raximjon Tulaganov',
@@ -39,15 +38,15 @@ export const metadata = {
     locale: 'uz_UZ',
     url: BASE_URL,
     siteName: 'Raximjon Tulaganov',
-    title: 'Raximjon Tulaganov — Frontend Engineer',
+    title: 'Raximjon Tulaganov — Frontend / Full-Stack',
     description:
-      "TurboRepo monorepo, SaaS platformalar va enterprise tizimlar mutaxassisi. Qarshi, O'zbekiston.",
+      "React, Next.js, TypeScript va Node.js'da production veb-ilovalar. Qarshi, O'zbekiston.",
     // og:image avtomatik ravishda app/opengraph-image.jsx (1200×630) dan olinadi.
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Raximjon Tulaganov — Frontend Engineer',
-    description: "TurboRepo monorepo, SaaS platformalar va enterprise tizimlar mutaxassisi.",
+    title: 'Raximjon Tulaganov — Frontend / Full-Stack',
+    description: "React, Next.js, TypeScript va Node.js'da production veb-ilovalar.",
     // twitter:image yo'q bo'lsa, kraulerlar og:image (yuqoridagi) ga qaytadi.
   },
   robots: {
@@ -76,9 +75,9 @@ const personJsonLd = {
   alternateName: ['rax1mjon', 'Raximjon'],
   url: BASE_URL,
   image: `${BASE_URL}/avatar.jpg`,
-  jobTitle: 'Frontend Engineer',
+  jobTitle: 'Frontend / Full-Stack Developer',
   description:
-    "TurboRepo monorepo asosida SaaS platformalar va enterprise tizimlar quruvchi Frontend Engineer. Qarshi, O'zbekiston.",
+    "React, Next.js, TypeScript va Node.js'da production veb-ilovalar quruvchi frontend / full-stack dasturchi. Qarshi, O'zbekiston.",
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Qarshi',
@@ -98,8 +97,10 @@ const personJsonLd = {
     'Monorepo Architecture',
     'TailwindCSS',
     'Next.js',
-    'SaaS Development',
-    'ERP Systems',
+    'Node.js',
+    'NestJS',
+    'PostgreSQL',
+    'Three.js',
     'Docker',
     'Nginx',
     'Frontend Engineering',
@@ -114,16 +115,19 @@ const websiteJsonLd = {
   name: 'Raximjon Tulaganov',
   url: BASE_URL,
   author: { '@type': 'Person', name: 'Raximjon Tulaganov' },
-  description: "Frontend Engineer portfolio — React, TurboRepo, SaaS, ERP.",
+  description: "Frontend / full-stack portfolio — React, Next.js, TypeScript, Node.js.",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="uz" suppressHydrationWarning>
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" />
         <script
           dangerouslySetInnerHTML={{
-            __html: "document.documentElement.classList.add('reveal-ready')",
+            __html: "try{var l=localStorage.getItem('rt-look');if(l==='atelye'){document.addEventListener('DOMContentLoaded',function(){document.body.dataset.look='atelye'})}}catch(e){}",
           }}
         />
         <script
@@ -135,14 +139,7 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </head>
-      <body className="bg-black text-white antialiased">
-        <ScrollReveal />
-        <Header />
-        <main className="min-h-screen bg-black/40 pt-9">
-          {children}
-        </main>
-        <Footer />
-      </body>
+      <body data-look="monolit" suppressHydrationWarning>{children}</body>
     </html>
   );
 }

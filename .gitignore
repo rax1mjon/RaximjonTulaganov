@@ -27,3 +27,8 @@ next-env.d.ts
 *.njsproj
 *.sln
 *.sw?
+
+# local env
+.env
+.env*.local
+!.env.example
