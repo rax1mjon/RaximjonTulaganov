@@ -28,7 +28,7 @@ function Phone() {
         <div className="news"><div className="img" /><div className="news-title">{NEWS[i][1]}</div></div>
       </div>
       <span className="float-chip par" data-speed="14" style={{ left: '8%', top: '16%' }}>4 til</span>
-      <span className="float-chip par" data-speed="-10" style={{ right: '8%', bottom: '18%' }}>hreflang + SEO</span>
+      <span className="float-chip par" data-speed="-10" style={{ right: '8%', bottom: '18%' }}>Telegram · Web · Video</span>
     </>
   );
 }
@@ -37,21 +37,21 @@ function Windows({ roles }) {
   return (
     <>
       <div className="win w1 par" data-speed="-6">
-        <div className="win-bar"><i /><i /><i />&nbsp; partners</div>
+        <div className="win-bar"><i /><i /><i />&nbsp; urtak.uz</div>
         <div className="win-body">
           <div className="bar" style={{ width: '70%' }} /><div className="bar" style={{ width: '45%' }} />
           <div className="bars">{[40, 65, 52, 88, 70].map((h) => <span key={h} style={{ height: `${h}%` }} />)}</div>
         </div>
       </div>
       <div className="win w2 par" data-speed="4">
-        <div className="win-bar"><i /><i /><i />&nbsp; admin</div>
+        <div className="win-bar"><i /><i /><i />&nbsp; dashboard.urtak.uz</div>
         <div className="win-body">
           <div><span className="role">{roles[0]}</span><span className="role">{roles[2]}</span></div>
           <div className="bar" style={{ width: '90%' }} /><div className="bar" style={{ width: '60%' }} /><div className="bar" style={{ width: '75%' }} />
         </div>
       </div>
       <div className="win w3 par" data-speed="12">
-        <div className="win-bar"><i /><i /><i />&nbsp; webmaster</div>
+        <div className="win-bar"><i /><i /><i />&nbsp; seller.urtak.uz</div>
         <div className="win-body">
           <div><span className="role">{roles[1]}</span><span className="role">{roles[3]}</span></div>
           <div className="bar" style={{ width: '55%' }} /><div className="bar" style={{ width: '80%' }} />
@@ -103,7 +103,7 @@ function Build() {
         <p><span className="b-ok">✓</span> sitemap.xml, robots.txt</p>
         <p><span className="b-ok">✓</span> opengraph-image <span className="b-dim">1200×630</span></p>
         <p><span className="b-ok">✓</span> three.js · gsap</p>
-        <p className="b-last">deploy → VPS · Nginx · SSL · Cloudflare</p>
+        <p className="b-last">git push → Vercel · preview · production</p>
       </div>
       <span className="float-chip par" data-speed="12" style={{ right: '8%', top: '12%' }}>Vite → Next.js 15</span>
     </>
