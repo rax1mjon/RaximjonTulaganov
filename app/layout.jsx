@@ -29,10 +29,6 @@ export const metadata = {
   ],
   authors: [{ name: 'Raximjon Tulaganov', url: BASE_URL }],
   creator: 'Raximjon Tulaganov',
-  icons: {
-    icon: [{ url: '/RTB.jpg', type: 'image/jpeg' }],
-    apple: '/RTB.jpg',
-  },
   openGraph: {
     type: 'website',
     locale: 'uz_UZ',

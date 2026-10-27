@@ -18,6 +18,13 @@ export function readLook() {
 export default function TopBar({ lang = 'uz', home = true, altHref }) {
   const t = dict[lang];
   const [look, setLook] = useState('monolit');
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const on = () => setScrolled(window.scrollY > 24);
+    on();
+    window.addEventListener('scroll', on, { passive: true });
+    return () => window.removeEventListener('scroll', on);
+  }, []);
   const base = lang === 'en' ? '/en' : '';
   const anchor = (id) => (home ? `#${id}` : `${base || '/'}#${id}`);
 
@@ -36,7 +43,7 @@ export default function TopBar({ lang = 'uz', home = true, altHref }) {
   };
 
   return (
-    <header className="top">
+    <header className={`top${scrolled ? ' scrolled' : ''}`}>
       <div className="wrap">
         <Link className="brand" href={base || '/'} data-magnetic>Raximjon Tulaganov</Link>
         <nav className="nav" aria-label={lang === 'en' ? 'Main' : 'Asosiy'}>

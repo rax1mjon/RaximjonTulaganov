@@ -87,7 +87,7 @@ function Gauge({ caption }) {
         <circle cx="110" cy="110" r="96" fill="none" stroke="var(--line)" strokeWidth="10" />
         <circle id="gauge-arc" cx="110" cy="110" r="96" fill="none" stroke="var(--ok)" strokeWidth="10" strokeLinecap="round" strokeDasharray="603" strokeDashoffset="12" transform="rotate(-90 110 110)" />
       </svg>
-      <div className="gauge-num"><span id="tbt">0</span> ms</div>
+      <div className="gauge-num"><span id="tbt">~0</span> ms</div>
       <div className="gauge-cap">{caption}</div>
     </div>
   );

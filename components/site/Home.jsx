@@ -18,6 +18,13 @@ export default function Home({ lang = 'uz' }) {
   const root = useRef(null);
   const [step, setStep] = useState(1);
   const [copied, setCopied] = useState(false);
+  const railRef = useRef(null);
+  const scrollStack = (dir) => {
+    const el = railRef.current;
+    if (!el) return;
+    const card = el.querySelector('.sg');
+    el.scrollBy({ left: dir * ((card ? card.offsetWidth : 320) + 20), behavior: 'smooth' });
+  };
   const base = lang === 'en' ? '/en' : '';
 
   useCursor(root);
@@ -57,7 +64,7 @@ export default function Home({ lang = 'uz' }) {
         if (containerAnimation) cfg.containerAnimation = containerAnimation;
         gsap.fromTo(o, { v: 13370 }, {
           v: 0, ease: 'none', scrollTrigger: cfg,
-          onUpdate: () => { out.textContent = fmt(o.v); arc.setAttribute('stroke-dashoffset', String(12 + (o.v / 13370) * 560)); },
+          onUpdate: () => { out.textContent = o.v < 60 ? '~0' : fmt(o.v); arc.setAttribute('stroke-dashoffset', String(12 + (o.v / 13370) * 560)); },
         });
       };
       const gaugePanel = () => root.current.querySelector('.panel[data-visual="gauge"]');
@@ -94,16 +101,6 @@ export default function Home({ lang = 'uz' }) {
         gsap.fromTo('#tl-fill', { scaleY: 0 }, { scaleY: 1, ease: 'none', scrollTrigger: { trigger: '.tline', start: 'top 75%', end: 'bottom 60%', scrub: true } });
       });
 
-      const m1 = gsap.fromTo('#mq1', { xPercent: 0 }, { xPercent: -50, duration: 40, ease: 'none', repeat: -1 });
-      const m2 = gsap.fromTo('#mq2', { xPercent: -50 }, { xPercent: 0, duration: 40, ease: 'none', repeat: -1 });
-      ScrollTrigger.create({
-        trigger: '.stack', start: 'top bottom', end: 'bottom top',
-        onUpdate: (self) => {
-          const v = Math.min(6, 1 + Math.abs(self.getVelocity()) / 400);
-          gsap.to([m1, m2], { timeScale: v, duration: 0.2, overwrite: true, onComplete: () => gsap.to([m1, m2], { timeScale: 1, duration: 1.2 }) });
-          gsap.to('.mq', { skewX: gsap.utils.clamp(-8, 8, self.getVelocity() / -300), duration: 0.3, overwrite: true });
-        },
-      });
     }, root);
 
     const refresh = () => ScrollTrigger.refresh();
@@ -199,7 +196,7 @@ export default function Home({ lang = 'uz' }) {
               <div className="tile">
                 <div className="tile-vis" aria-hidden="true">
                   <div className="mono">
-                    <div className="mono-row"><span>partners</span><span>admin</span><span>webmaster</span></div>
+                    <div className="mono-row"><span>urtak</span><span>dashboard</span><span>seller</span></div>
                     <div className="mono-wires"><i /><i /><i /></div>
                     <div className="mono-row pk"><span>ui</span><span>hooks</span><span>store</span><span>server</span><span>config</span></div>
                   </div>
@@ -216,10 +213,54 @@ export default function Home({ lang = 'uz' }) {
               </div>
               <div className="tile">
                 <div className="tile-vis" aria-hidden="true">
-                  <div className="pipe"><span>git</span><i /><span>build</span><i /><span>docker</span><i /><span>nginx</span><i /><span>cdn</span></div>
+                  <div className="pipe"><span>git</span><i /><span>build</span><i /><span>vercel</span><i /><span>cdn</span></div>
                   <div className="pipe-run"><b /></div>
                 </div>
                 <h3>{t.skills[3].title}</h3><p>{t.skills[3].text}</p>
+              </div>
+              <div className="tile">
+                <div className="tile-vis" aria-hidden="true">
+                  <div className="dash">
+                    <div className="dash-bars">{[38, 62, 48, 80, 56, 92, 70].map((h, k) => <i key={k} style={{ height: `${h}%`, animationDelay: `${k * 0.15}s` }} />)}</div>
+                    <div className="dash-rows">{['#1024', '#1025', '#1026'].map((r, k) => <span key={r}><b>{r}</b><em className={`st st${k}`} /></span>)}</div>
+                  </div>
+                </div>
+                <h3>{t.skills[4].title}</h3><p>{t.skills[4].text}</p>
+              </div>
+              <div className="tile">
+                <div className="tile-vis" aria-hidden="true">
+                  <div className="schema">
+                    <span className="tb"><b>users</b><i>id</i><i>role</i></span>
+                    <span className="link-line" />
+                    <span className="tb"><b>orders</b><i>id</i><i>user_id</i></span>
+                    <span className="link-line" />
+                    <span className="tb"><b>items</b><i>id</i><i>order_id</i></span>
+                  </div>
+                  <div className="token"><span className="tk-dot" />GET /api/orders · 200</div>
+                </div>
+                <h3>{t.skills[5].title}</h3><p>{t.skills[5].text}</p>
+              </div>
+              <div className="tile">
+                <div className="tile-vis" aria-hidden="true">
+                  <div className="fan">
+                    <span className="fan-src">post</span>
+                    <span className="fan-lines"><i /><i /><i /></span>
+                    <span className="fan-dst"><span>Telegram</span><span>Facebook</span><span>TikTok</span></span>
+                  </div>
+                </div>
+                <h3>{t.skills[6].title}</h3><p>{t.skills[6].text}</p>
+              </div>
+              <div className="tile">
+                <div className="tile-vis" aria-hidden="true">
+                  <div className="hello"><span>Salom</span><span>Салом</span><span>Привет</span><span>Hello</span></div>
+                </div>
+                <h3>{t.skills[7].title}</h3><p>{t.skills[7].text}</p>
+              </div>
+              <div className="tile">
+                <div className="tile-vis" aria-hidden="true">
+                  <div className="cube"><i /><i /><i /><i /><i /><i /></div>
+                </div>
+                <h3>{t.skills[8].title}</h3><p>{t.skills[8].text}</p>
               </div>
             </div>
           </div>
@@ -263,17 +304,25 @@ export default function Home({ lang = 'uz' }) {
           </div>
         </section>
 
-        <section className="stack" aria-label="Stack">
-          <div className="mq" id="mq1">{[...stack.row1, ...stack.row1].map((s, i) => <span key={i} className={i % 2 ? 'o' : undefined}>{s}</span>)}</div>
-          <div className="mq" id="mq2">{[...stack.row2, ...stack.row2].map((s, i) => <span key={i} className={i % 2 ? undefined : 'o'}>{s}</span>)}</div>
-        </section>
-
-        <section className="wrap" aria-label="Numbers">
-          <div className="stats">
-            {t.stats.map((s) => (
-              <div className="stat" key={s.label}>
-                {s.text ? <b>{s.text}</b> : <b className="count" data-to={s.n} data-suffix={s.suffix}>{fmt(s.n)}{s.suffix}</b>}
-                <span>{s.label}</span>
+        <section className="stack" aria-labelledby="stack-title">
+          <div className="wrap">
+            <div className="sec-head">
+              <h2 id="stack-title">{t.stackTitle}</h2>
+              <div className="stack-ctl">
+                <p>{t.stackNote}</p>
+                <div className="stack-btns">
+                  <button type="button" aria-label="Prev" onClick={() => scrollStack(-1)}>←</button>
+                  <button type="button" aria-label="Next" onClick={() => scrollStack(1)}>→</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="stack-rail" ref={railRef} tabIndex={0} aria-label={t.stackTitle}>
+            {stack.map((g, gi) => (
+              <div className="sg" key={g.name.en}>
+                <span className="sg-n">{String(gi + 1).padStart(2, '0')} / {String(stack.length).padStart(2, '0')}</span>
+                <h3>{g.name[lang]}</h3>
+                <ul>{g.items.map((it) => <li key={it}>{it}</li>)}</ul>
               </div>
             ))}
           </div>

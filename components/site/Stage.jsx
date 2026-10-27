@@ -7,7 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { readLook } from './TopBar';
 
 const LOOKS = {
-  monolit: { slab: 0x1a1a1a, rail: 0x2a2a2a, light: 0xffffff, dust: 0xffffff, fog: 0x000000, rails: false, filter: 'grayscale(1) contrast(1.06) brightness(1.12)' },
+  monolit: { slab: 0x1a1a1a, rail: 0x2a2a2a, light: 0xffffff, dust: 0xffffff, fog: 0x000000, rails: false, filter: 'grayscale(1) contrast(1.12) brightness(1.1)' },
   atelye: { slab: 0x1c1712, rail: 0xb07445, light: 0xffd2a8, dust: 0xe8c39e, fog: 0x12100d, rails: true, filter: 'sepia(0.28) saturate(0.8) contrast(1.05)' },
 };
 
@@ -55,14 +55,15 @@ export default function Stage({ label, hint }) {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
 
     const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x000000, 0.07);
+    scene.fog = new THREE.FogExp2(0x000000, 0.03);
     const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 100);
-    camera.position.set(0, 0, 8.2);
+    camera.position.set(0, 0, 7.2);
 
     let look = LOOKS[readLook()];
     let img = null;
     const tex = new THREE.CanvasTexture(drawPortrait(null, look.filter));
     tex.colorSpace = THREE.SRGBColorSpace;
+    tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
     const side = new THREE.MeshStandardMaterial({ color: look.slab, metalness: 0.85, roughness: 0.32 });
     const front = new THREE.MeshStandardMaterial({ map: tex, emissive: 0xffffff, emissiveMap: tex, emissiveIntensity: 0.6, metalness: 0.1, roughness: 0.65 });
     const slab = new THREE.Mesh(new THREE.BoxGeometry(1.7, 2.72, 0.2), [side, side, side, side, front, side]);
