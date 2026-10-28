@@ -37,21 +37,21 @@ function Windows({ roles }) {
   return (
     <>
       <div className="win w1 par" data-speed="-6">
-        <div className="win-bar"><i /><i /><i />&nbsp; urtak.uz</div>
+        <div className="win-bar"><i /><i /><i />&nbsp; partners</div>
         <div className="win-body">
           <div className="bar" style={{ width: '70%' }} /><div className="bar" style={{ width: '45%' }} />
           <div className="bars">{[40, 65, 52, 88, 70].map((h) => <span key={h} style={{ height: `${h}%` }} />)}</div>
         </div>
       </div>
       <div className="win w2 par" data-speed="4">
-        <div className="win-bar"><i /><i /><i />&nbsp; dashboard.urtak.uz</div>
+        <div className="win-bar"><i /><i /><i />&nbsp; admin</div>
         <div className="win-body">
           <div><span className="role">{roles[0]}</span><span className="role">{roles[2]}</span></div>
           <div className="bar" style={{ width: '90%' }} /><div className="bar" style={{ width: '60%' }} /><div className="bar" style={{ width: '75%' }} />
         </div>
       </div>
       <div className="win w3 par" data-speed="12">
-        <div className="win-bar"><i /><i /><i />&nbsp; seller.urtak.uz</div>
+        <div className="win-bar"><i /><i /><i />&nbsp; webmaster</div>
         <div className="win-body">
           <div><span className="role">{roles[1]}</span><span className="role">{roles[3]}</span></div>
           <div className="bar" style={{ width: '55%' }} /><div className="bar" style={{ width: '80%' }} />

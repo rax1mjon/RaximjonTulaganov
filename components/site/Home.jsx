@@ -206,7 +206,7 @@ export default function Home({ lang = 'uz' }) {
               <div className="tile">
                 <div className="tile-vis" aria-hidden="true">
                   <div className="mono">
-                    <div className="mono-row"><span>urtak</span><span>dashboard</span><span>seller</span></div>
+                    <div className="mono-row"><span>partners</span><span>admin</span><span>webmaster</span></div>
                     <div className="mono-wires"><i /><i /><i /></div>
                     <div className="mono-row pk"><span>ui</span><span>hooks</span><span>store</span><span>server</span><span>config</span></div>
                   </div>

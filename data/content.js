@@ -14,25 +14,25 @@ export const contacts = {
 export const projects = [
   {
     id: 'f653b05c-83b5-47bc-a286-d53c16e36a2e',
-    slug: 'urtak',
+    slug: 'cpa-marketplace',
     year: '2026',
-    name: { uz: 'Urtak', en: 'Urtak' },
-    kind: { uz: 'CPA marketplace · Monorepo', en: 'CPA marketplace · Monorepo' },
+    name: { uz: 'CPA Marketplace', en: 'CPA Marketplace' },
+    kind: { uz: 'Monorepo', en: 'Monorepo' },
     summary: {
-      uz: "CPA marketplace platformasi. Bitta Turborepo + pnpm workspace ichida uchta ilova, har biri o'z subdomenida, hammasi bitta api.urtak.uz bilan ishlaydi.",
-      en: 'A CPA marketplace platform. Three apps in one Turborepo + pnpm workspace, each on its own subdomain, all talking to one api.urtak.uz.',
+      uz: "CPA marketplace platformasi. Bitta Turborepo + pnpm workspace ichida uchta ilova, har biri o'z subdomenida, hammasi bitta API bilan ishlaydi.",
+      en: 'A CPA marketplace platform. Three apps in one Turborepo + pnpm workspace, each on its own subdomain, all talking to one API.',
     },
     did: {
       uz: [
-        "urtak.uz (hamkorlar sayti), dashboard.urtak.uz (admin panel), seller.urtak.uz (webmaster paneli): har biri alohida ilova, Nginx subdomen marshrutlash",
-        "5 ta umumiy paket: @urtak/config (design token'lar), @urtak/store (Redux), @urtak/server (Axios + 13 ta API servis), @urtak/hooks (TanStack Query), @urtak/ui (komponentlar)",
+        "Hamkorlar sayti, admin panel va webmaster paneli: har biri alohida ilova, Nginx subdomen marshrutlash",
+        "5 ta umumiy paket: config (design token'lar), store (Redux), server (Axios + 13 ta API servis), hooks (TanStack Query), ui (komponentlar)",
         "Admin panelda 4 rol: superadmin, omborchi, operator, kuryer. Har biriga alohida marshrut va menyu",
         "JWT: Axios interceptor muddati tugagan access token'ni o'zi yangilaydi. Rasmlar Cloudflare Images'ga direct upload URL orqali yuklanadi",
         "React.lazy + Suspense bilan kod bo'linadi: har bir rol faqat o'z sahifalarini yuklaydi",
       ],
       en: [
-        'urtak.uz (partner site), dashboard.urtak.uz (admin panel), seller.urtak.uz (webmaster panel): separate apps behind Nginx subdomain routing',
-        '5 shared packages: @urtak/config (design tokens), @urtak/store (Redux), @urtak/server (Axios + 13 API services), @urtak/hooks (TanStack Query), @urtak/ui (components)',
+        'Partner site, admin panel and webmaster panel: separate apps behind Nginx subdomain routing',
+        '5 shared packages: config (design tokens), store (Redux), server (Axios + 13 API services), hooks (TanStack Query), ui (components)',
         'The admin panel has 4 roles: superadmin, warehouse, operator, courier, each with its own routes and menu',
         'JWT: an Axios interceptor refreshes expired access tokens; images go to Cloudflare Images through direct upload URLs',
         'Code splitting with React.lazy + Suspense, so each role loads only its own pages',
@@ -45,7 +45,7 @@ export const projects = [
       { n: '4', uz: 'rol', en: 'roles' },
     ],
     tags: ['Turborepo', 'pnpm workspace', 'React', 'Redux Toolkit', 'TanStack Query', 'JWT', 'Cloudflare Images', 'Nginx'],
-    liveUrl: 'https://urtak.uz/',
+    liveUrl: null,
     githubUrl: null,
     visual: 'windows',
   },
